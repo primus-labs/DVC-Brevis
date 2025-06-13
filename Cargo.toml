@@ -1,0 +1,9 @@
+[workspace]
+members = ["zktls/*"]
+resolver = "2"
+
+[workspace.dependencies]
+pico-sdk = { git = "https://github.com/brevis-network/pico", rev = "d67fb438" }
+
+[patch.crates-io]
+ecdsa-core = { git = "https://github.com/brevis-network/signatures", package = "ecdsa", branch = "patch-v1.0.1" }

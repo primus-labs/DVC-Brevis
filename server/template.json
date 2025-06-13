@@ -1,0 +1,34 @@
+{
+  "zktls/prove": {
+    "requestid": "1234",
+    "attestationData": {
+      "public_data": {},
+      "private_data": {}
+    }
+  },
+  "zktls/prove.response.0": {
+    "code": "0",
+    "description": "success"
+  },
+  "zktls/prove.response.10002": {
+    "code": "10002",
+    "description": "Server is busy, please try later."
+  },
+  "zktls/result": {
+    "requestid": "1234"
+  },
+  "zktls/result.response.0": {
+    "code": "0",
+    "description": "success",
+    "details": {
+      "status": "done", // running, done, error
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "zktls/result.response.10003": {
+    "code": "10003",
+    "description": "requestid {requestid} not exist!"
+  }
+}

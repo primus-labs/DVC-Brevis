@@ -1,0 +1,13 @@
+[package]
+name = "zktls"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+pico-sdk = { workspace = true }
+# zktls-att-verification = { git = "https://github.com/primus-labs/zktls-att-verification.git", rev = "8275b6fa" }
+zktls-att-verification = { git = "https://github.com/primus-labs/zktls-att-verification.git", branch = "brevis" }
+serde_json = "1.0"
+
+[patch.crates-io]
+ecdsa-core = { git = "https://github.com/brevis-network/signatures", package = "ecdsa", branch = "patch-v1.0.1" }
