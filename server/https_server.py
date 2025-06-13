@@ -60,6 +60,11 @@ class SimpleHTTPSRequestHandler(http.server.SimpleHTTPRequestHandler):
                 with open(f"{output_dir}/pv_file", "r", encoding="utf-8") as f:
                     pv_file = f.read()
 
+            proof = ""
+            if os.path.exists(f"{output_dir}/proof.json"):
+                with open(f"{output_dir}/proof.json", "r", encoding="utf-8") as f:
+                    proof = f.read()
+
             t_end = time.perf_counter()
             tasks[requestid] = {
                 "status": "done",
@@ -67,8 +72,10 @@ class SimpleHTTPSRequestHandler(http.server.SimpleHTTPRequestHandler):
                 "stdout": result.stdout,
                 "stderr": result.stderr,
                 "pv_file": pv_file,
+                "proof": proof,
                 "elapsed": f"{t_end - t_start:.6f}",
             }
+            print(f"[ELAPSED]: {t_end - t_start:.6f}")
         except Exception as e:
             print("[EXCEPTION]:", str(e))
             t_end = time.perf_counter()
@@ -78,8 +85,10 @@ class SimpleHTTPSRequestHandler(http.server.SimpleHTTPRequestHandler):
                 "stdout": "",
                 "stderr": str(e),
                 "pv_file": "",
+                "proof": "",
                 "elapsed": f"{t_end - t_start:.6f}",
             }
+            print(f"[ELAPSED]: {t_end - t_start:.6f}")
         finally:
             is_busy.value = 0
 
