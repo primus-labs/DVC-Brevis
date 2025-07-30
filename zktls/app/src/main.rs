@@ -28,6 +28,29 @@ pub fn main() {
         json_paths.push("$.data.data");
         let json_value = messages[0].get_json_values(&json_paths);
         println!("data.data:{:?}", json_value);
+    } else if request_url
+        == "https://www.binance.com/bapi/capital/v1/private/streamer/trade/get-user-trades"
+    {
+        {
+            let mut json_paths = vec![];
+            json_paths.push("$.data[0].userId");
+            json_paths.push("$.data[0].userIdStr");
+            let json_value = messages[0].get_json_values(&json_paths);
+            println!("userId:{:?}", json_value);
+        }
+        {
+            let mut json_paths = vec![];
+            json_paths.push("$.data[*].usdtAmount");
+            let json_value = messages[0].get_json_values(&json_paths);
+            println!("usdtAmounts:{:?}", json_value);
+
+            let usdt_total: f64 = json_value
+                .unwrap()
+                .iter()
+                .map(|s| s.parse::<f64>().unwrap_or(0.0))
+                .sum();
+            println!("usdtTotal:{:?}", usdt_total);
+        }
     }
 
     commit(&attestation_data.public_data);
