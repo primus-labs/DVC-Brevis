@@ -5,9 +5,11 @@ edition = "2024"
 
 [dependencies]
 pico-sdk = { workspace = true }
-# zktls-att-verification = { git = "https://github.com/primus-labs/zktls-att-verification.git", rev = "374c0a7" }
+# zktls-att-verification = { git = "https://github.com/primus-labs/zktls-att-verification.git", rev = "0086848" }
 zktls-att-verification = { git = "https://github.com/primus-labs/zktls-att-verification.git", branch = "brevis" }
+serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+anyhow = { version = "1.0.40", default-features = false }
 
 [patch.crates-io]
 ecdsa-core = { git = "https://github.com/brevis-network/signatures", package = "ecdsa", branch = "patch-v1.0.1" }
