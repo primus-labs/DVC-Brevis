@@ -1,8 +1,6 @@
 {
   "attestor_addr": "0xDB736B13E2f522dBE18B2015d0291E4b193D8eF6",
   "url": [
-    "https://www.bitget.com/v1/mix/vip/need",
-    "https://www.bitget.com/v1/spot/order/historyList",
     "https://www.binance.com/bapi/capital/v1/private/streamer/trade/get-user-trades"
   ]
 }
