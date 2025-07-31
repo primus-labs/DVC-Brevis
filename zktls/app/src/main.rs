@@ -86,5 +86,6 @@ pub fn main() {
     if let Err(e) = app_main() {
         println!("Error: {:?}", e);
         // panic or not?
+        panic!("error {:?}", e);
     }
 }
