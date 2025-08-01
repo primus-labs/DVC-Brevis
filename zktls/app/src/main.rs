@@ -5,13 +5,19 @@ use pico_sdk::io::{commit, read_as};
 use serde_json::Value;
 use zktls_att_verification::attestation_data::verify_attestation_data;
 
+const ATTESTATION_CONFIG: &str = r#"{
+  "attestor_addr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
+  "url": [
+    "https://www.binance.com/bapi/capital/v1/private/streamer/trade/get-user-trades"
+  ]
+}"#;
+
 fn app_main() -> Result<()> {
     let attestation_data: String = read_as();
-    let attestation_config: String = read_as();
 
     // 1. Verify
     let (attestation_data, _, messages) =
-        verify_attestation_data(&attestation_data, &attestation_config)?;
+        verify_attestation_data(&attestation_data, ATTESTATION_CONFIG)?;
     commit(&attestation_data.public_data);
 
     // 2. Do some valid checks
@@ -23,17 +29,20 @@ fn app_main() -> Result<()> {
     let start_time = request_body["startTime"].as_i64().unwrap();
     let end_time = request_body["endTime"].as_i64().unwrap();
 
+    commit(&base_asset);
     if base_asset != "BNB" {
         return Err(anyhow!("Invalid base asset!"));
     }
 
     const MIN_END_TIME: i64 = 1752969600000; // 2025-07-20 00:00:00 UTC+0
+    commit(&end_time);
     commit(&MIN_END_TIME);
     if end_time < MIN_END_TIME {
         return Err(anyhow!("Not within the specified date range!"));
     }
 
     const MAX_DURATION_MS: i64 = 32 * 24 * 60 * 60 * 1000; // 32 days
+    commit(&start_time);
     commit(&MAX_DURATION_MS);
     if end_time - start_time >= MAX_DURATION_MS {
         return Err(anyhow!("The date range is too large!"));
@@ -69,7 +78,7 @@ fn app_main() -> Result<()> {
             .sum();
         println!("The total amount of USDT:{:?}", usdt_total);
 
-        const BASE_VALUE: f64 = 1000.0;
+        const BASE_VALUE: f64 = 100.0; // 1000.0
         let res = (usdt_total - BASE_VALUE) > 0.0;
         println!("Compared to the base value of {}:{:?}", BASE_VALUE, res);
         commit(&BASE_VALUE);

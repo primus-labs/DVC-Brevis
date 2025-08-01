@@ -29,6 +29,5 @@ bash ./build.sh
 RUST_LOG=info ./target/release/zktls-prover \
   --elf ./zktls/app/elf/riscv32im-pico-zkvm-elf \
   --input ./zktls/prover/data/attestation_data.json \
-  --config ./zktls/prover/data/attestation_config.json \
   --output-dir pico_out
 ```
