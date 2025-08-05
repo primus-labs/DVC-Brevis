@@ -83,9 +83,9 @@ fn app_main() -> Result<()> {
         println!("Compared to the base value of {}:{:?}", BASE_VALUE, res);
         commit(&BASE_VALUE);
         commit(&res);
-        if !res {
-            return Err(anyhow!("Not reach the minimum transaction amount!"));
-        }
+        // if !res {
+        //     return Err(anyhow!("Not reach the minimum transaction amount!"));
+        // }
     }
 
     Ok(())
