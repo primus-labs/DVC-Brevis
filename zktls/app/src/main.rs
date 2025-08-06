@@ -81,7 +81,7 @@ fn app_main() -> Result<()> {
         const BASE_VALUE: f64 = 100.0; // 1000.0
         let res = (usdt_total - BASE_VALUE) > 0.0;
         println!("Compared to the base value of {}:{:?}", BASE_VALUE, res);
-        commit(&BASE_VALUE);
+        // commit(&BASE_VALUE);
         commit(&res);
         // if !res {
         //     return Err(anyhow!("Not reach the minimum transaction amount!"));
