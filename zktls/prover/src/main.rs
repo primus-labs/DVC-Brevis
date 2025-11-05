@@ -11,7 +11,7 @@ struct Opt {
     #[structopt(short, long, default_value = "../app/elf/riscv32im-pico-zkvm-elf")]
     elf: String,
 
-    #[structopt(short, long, default_value = "./data/attestation_data.json")]
+    #[structopt(short, long, default_value = "./data/phala_evms_attestation_data.json")]
     input: String,
 
     #[structopt(short, long, default_value = "./pico_out")]

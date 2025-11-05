@@ -1,94 +1,111 @@
 #![no_main]
+
+mod errors;
+mod phala;
+
 pico_sdk::entrypoint!(main);
+use crate::{
+    errors::{ZkErrorCode, ZktlsError},
+    phala::VmStatusMap,
+};
 use anyhow::{Result, anyhow};
 use pico_sdk::io::{commit, read_as};
-use serde_json::Value;
+use regex::Regex;
+use serde_json::{Value, json};
 use zktls_att_verification::attestation_data::verify_attestation_data;
-
-const ATTESTATION_CONFIG: &str = r#"{
-  "attestor_addr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
-  "url": [
-    "https://www.binance.com/bapi/capital/v1/private/streamer/trade/get-user-trades"
-  ]
-}"#;
 
 fn app_main() -> Result<()> {
     let attestation_data: String = read_as();
+    println!("attestation_data:{}", attestation_data);
 
+    // 0. Make attestation config
+    let v: serde_json::Value = serde_json::from_str(&attestation_data)
+        .map_err(|e| zkerr!(ZkErrorCode::ParseAttestationData, e.to_string()))?;
+    let attestor_addr = v
+        .get("public_data")
+        .and_then(|pd| pd.get(0))
+        .and_then(|item| item.get("attestor"))
+        .and_then(|a| a.as_str())
+        .ok_or_else(|| zkerr!(ZkErrorCode::GetAttestorAddressFail))?;
+    let attestion_confg = json!({
+        "attestor_addr": attestor_addr,
+        "url": ["https://cloud.phala.network/api/status/batch?"
+        ]
+    });
     // 1. Verify
     let (attestation_data, _, messages) =
-        verify_attestation_data(&attestation_data, ATTESTATION_CONFIG)?;
+        verify_attestation_data(&attestation_data, &attestion_confg.to_string())?;
+    println!("verify success");
+
     commit(&attestation_data.public_data);
 
-    // 2. Do some valid checks
     // Please handle it according to your actual business requirements.
     // Here is just a demonstration.
-    let request = attestation_data.public_data.request.clone();
-    let request_body: Value = serde_json::from_str(&request.body)?;
-    let base_asset = request_body["baseAsset"].as_str().unwrap();
-    let start_time = request_body["startTime"].as_i64().unwrap();
-    let end_time = request_body["endTime"].as_i64().unwrap();
-
-    commit(&base_asset);
-    if base_asset != "BNB" {
-        return Err(anyhow!("Invalid base asset!"));
-    }
-
-    const MIN_END_TIME: i64 = 1752969600000; // 2025-07-20 00:00:00 UTC+0
-    commit(&end_time);
-    commit(&MIN_END_TIME);
-    if end_time < MIN_END_TIME {
-        return Err(anyhow!("Not within the specified date range!"));
-    }
-
-    const MAX_DURATION_MS: i64 = 32 * 24 * 60 * 60 * 1000; // 32 days
-    commit(&start_time);
-    commit(&MAX_DURATION_MS);
-    if end_time - start_time >= MAX_DURATION_MS {
-        return Err(anyhow!("The date range is too large!"));
-    }
-
-    if request.url
-        != "https://www.binance.com/bapi/capital/v1/private/streamer/trade/get-user-trades"
+    if let Some(first_response) = attestation_data
+        .private_data
+        .plain_json_response
+        .as_ref()
+        .and_then(|v| v.get(0))
     {
-        return Err(anyhow!("Invalid request url!"));
-    }
+        let content = first_response.content.clone();
+        let vms: VmStatusMap = serde_json::from_str(&content)?;
 
-    // 3. Do some calculations and so on
-    {
-        // Get the user id by `userId`
-        let mut json_paths = vec![];
-        json_paths.push("$.data[0].userId");
-        let user_id = messages[0].get_json_values(&json_paths)?;
-        println!("userId:{:?}", user_id);
-        commit(&user_id);
-    }
-
-    {
-        // Obtain all `usdtAmount` values, accumulate them,
-        // and then compare the sum with a base value.
-        let mut json_paths = vec![];
-        json_paths.push("$.data[*].usdtAmount");
-        let usdt_amounts = messages[0].get_json_values(&json_paths)?;
-        println!("usdtAmounts:{:?}", usdt_amounts);
-
-        let usdt_total: f64 = usdt_amounts
-            .iter()
-            .map(|s| s.parse::<f64>().unwrap_or(0.0))
-            .sum();
-        println!("The total amount of USDT:{:?}", usdt_total);
-
-        const BASE_VALUE: f64 = 100.0; // 1000.0
-        let res = (usdt_total - BASE_VALUE) > 0.0;
-        println!("Compared to the base value of {}:{:?}", BASE_VALUE, res);
-        // commit(&BASE_VALUE);
-        commit(&res);
-        // if !res {
-        //     return Err(anyhow!("Not reach the minimum transaction amount!"));
-        // }
+        let mut up_time_enough = false;
+        for (uuid, vm_status) in &vms {
+            println!("VM UUID: {}", uuid);
+            println!("Uptime: {}", vm_status.uptime);
+            println!("---------------------------");
+            if let Some(minutes) = parse_uptime(&vm_status.uptime) {
+                if (minutes > 10) {
+                    println!("up minutes:{}",minutes);
+                    up_time_enough = true;
+                    break;
+                }
+            }
+        }
+        ensure_zk!(up_time_enough, zkerr!(ZkErrorCode::UpTimeNotEnough));
+    } else {
+        ensure_zk!(true,zkerr!(ZkErrorCode::EmptyPlainResponse));
     }
 
     Ok(())
+}
+
+fn parse_uptime(uptime: &str) -> Option<u64> {
+    // Extra years, months, days, hours, minutes, seconds
+    let re = Regex::new(r"(?:(?P<years>\d+)y)?(?:(?P<months>\d+)mo?)?(?:(?P<days>\d+)d)?(?:(?P<hours>\d+)h)?(?:(?P<minutes>\d+)m)?(?:(?P<seconds>\d+)s)?").unwrap();
+    if let Some(caps) = re.captures(uptime) {
+        let years: u64 = caps
+            .name("years")
+            .map_or(0, |m| m.as_str().parse().unwrap_or(0));
+        let months: u64 = caps
+            .name("months")
+            .map_or(0, |m| m.as_str().parse().unwrap_or(0));
+        let days: u64 = caps
+            .name("days")
+            .map_or(0, |m| m.as_str().parse().unwrap_or(0));
+        let hours: u64 = caps
+            .name("hours")
+            .map_or(0, |m| m.as_str().parse().unwrap_or(0));
+        let minutes: u64 = caps
+            .name("minutes")
+            .map_or(0, |m| m.as_str().parse().unwrap_or(0));
+        let seconds: u64 = caps
+            .name("seconds")
+            .map_or(0, |m| m.as_str().parse().unwrap_or(0));
+
+        // Convert to minutes
+        Some(
+            years * 365 * 24 * 60
+                + months * 30 * 24 * 60
+                + days * 24 * 60
+                + hours * 60
+                + minutes
+                + seconds / 60,
+        )
+    } else {
+        None
+    }
 }
 
 pub fn main() {

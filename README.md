@@ -28,6 +28,6 @@ RUST_LOG=info cargo run --release
 bash ./build.sh
 RUST_LOG=info ./target/release/zktls-prover \
   --elf ./zktls/app/elf/riscv32im-pico-zkvm-elf \
-  --input ./zktls/prover/data/attestation_data.json \
+  --input ./zktls/prover/data/phala_evms_attestation_data.json \
   --output-dir pico_out
 ```

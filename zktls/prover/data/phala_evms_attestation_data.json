@@ -1,0 +1,47 @@
+{
+  "verification_type": "HASH_COMPARSION",
+  "public_data": [
+    {
+      "attestation": {
+        "recipient": "0x8F0D4188307496926d785fB00E08Ed772f3be890",
+        "request": [
+          {
+            "url": "https://cloud.phala.network/api/status/batch?",
+            "header": "",
+            "method": "POST",
+            "body": "{\"vm_uuids\":[\"3c98d7e0-75ee-41f0-bf85-96580bc2d1f0\",\"5e860d64-ede3-4336-9e2c-af44621b461f\",\"e7d19dec-f01e-4990-b19b-2eb2c31bd31d\",\"9c977789-775c-476d-9a4f-17c2e4677b43\"]}"
+          }
+        ],
+        "responseResolves": [
+          {
+            "oneUrlResponseResolve": [
+              {
+                "keyName": "",
+                "parseType": "",
+                "parsePath": "$"
+              }
+            ]
+          }
+        ],
+        "data": "{\"SHA256($)\":\"28e734abf92b3ae44696c3a9fc75d4d62ea6decee6054ee1684ebadb14dcc553\"}",
+        "attConditions": "[{\"op\":\"SHA256\",\"field\":\"$\"}]",
+        "timestamp": 1762323512000,
+        "additionParams": "{\"algorithmType\":\"proxytls\"}"
+      },
+      "attestor": "0x0de886e31723e64aa72e51977b14475fb66a9f72",
+      "signature": "0xd3906cd5fde06e6aac3621eb0976337c87f004d7ec560fddd4f3018d28c389f20a5c72867c7516159139928c3bdacdb5e353c82c0adf89941d7176b3ae37d8ec1c",
+      "reportTxHash": "0x1d2d157aa15dbd7a5cb6304c2eb613a0acec3ed951be6d5250509b496ff5365f",
+      "taskId": "0x68905ee3f1a8d575ba74a60a6a2856e37a2d6e5a81ed7b2fb8f7286df82c020c",
+      "attestationTime": 42579,
+      "attestorUrl": "3b5e4f6ca1ab51d28c4db7d39ba16a96d117e453-18080.dstack-base-prod9.phala.network"
+    }
+  ],
+  "private_data": {
+    "plain_json_response": [
+      {
+        "id": "SHA256($)",
+        "content": "{\"9c977789-775c-476d-9a4f-17c2e4677b43\":{\"vm_uuid\":\"9c977789-775c-476d-9a4f-17c2e4677b43\",\"status\":\"running\",\"uptime\":\"6days 21h 57m 52s\",\"in_progress\":false,\"boot_progress\":null,\"boot_error\":null,\"operation_type\":null,\"operation_started_at\":null,\"correlation_id\":null},\"e7d19dec-f01e-4990-b19b-2eb2c31bd31d\":{\"vm_uuid\":\"e7d19dec-f01e-4990-b19b-2eb2c31bd31d\",\"status\":\"running\",\"uptime\":\"7days 5h 43m 18s\",\"in_progress\":false,\"boot_progress\":null,\"boot_error\":null,\"operation_type\":null,\"operation_started_at\":null,\"correlation_id\":null},\"3c98d7e0-75ee-41f0-bf85-96580bc2d1f0\":{\"vm_uuid\":\"3c98d7e0-75ee-41f0-bf85-96580bc2d1f0\",\"status\":\"running\",\"uptime\":\"20days 3h 41m 50s\",\"in_progress\":false,\"boot_progress\":null,\"boot_error\":null,\"operation_type\":null,\"operation_started_at\":null,\"correlation_id\":null},\"5e860d64-ede3-4336-9e2c-af44621b461f\":{\"vm_uuid\":\"5e860d64-ede3-4336-9e2c-af44621b461f\",\"status\":\"running\",\"uptime\":\"20days 3h 42m 53s\",\"in_progress\":false,\"boot_progress\":null,\"boot_error\":null,\"operation_type\":null,\"operation_started_at\":null,\"correlation_id\":null}}"
+      }
+    ]
+  }
+}
