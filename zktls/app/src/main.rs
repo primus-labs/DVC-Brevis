@@ -6,7 +6,7 @@ mod phala;
 pico_sdk::entrypoint!(main);
 use crate::{
     errors::{ZkErrorCode, ZktlsError},
-    phala::VmStatusMap,
+    phala::{UserInfo, VmStatusMap},
 };
 use anyhow::{Result, anyhow};
 use pico_sdk::io::{commit, read_as};
@@ -29,7 +29,8 @@ fn app_main() -> Result<()> {
         .ok_or_else(|| zkerr!(ZkErrorCode::GetAttestorAddressFail))?;
     let attestion_confg = json!({
         "attestor_addr": attestor_addr,
-        "url": ["https://cloud.phala.network/api/status/batch?"
+        "url": ["https://cloud.phala.network/api/status/batch",
+            "https://cloud-api.phala.network/api/v1/auth/me?"
         ]
     });
     // 1. Verify
@@ -41,71 +42,70 @@ fn app_main() -> Result<()> {
 
     // Please handle it according to your actual business requirements.
     // Here is just a demonstration.
-    if let Some(first_response) = attestation_data
-        .private_data
-        .plain_json_response
-        .as_ref()
-        .and_then(|v| v.get(0))
-    {
-        let content = first_response.content.clone();
-        let vms: VmStatusMap = serde_json::from_str(&content)?;
-
+    if let Some(responses) = attestation_data.private_data.plain_json_response.as_ref() {
         let mut up_time_enough = false;
-        for (uuid, vm_status) in &vms {
-            println!("VM UUID: {}", uuid);
-            println!("Uptime: {}", vm_status.uptime);
-            println!("---------------------------");
-            if let Some(minutes) = parse_uptime(&vm_status.uptime) {
-                if (minutes > 10) {
-                    println!("up minutes:{}",minutes);
-                    up_time_enough = true;
+
+        for response in responses {
+            let id = response.id.as_str();
+            let content = response.content.as_str();
+            if ("userInfo".eq(id)) {
+                let user_info: UserInfo = serde_json::from_str(content)?;
+                println!("userInfo: {:?}", user_info);
+                commit(&user_info.email);
+            } else {
+                let vms: VmStatusMap = serde_json::from_str(content)?;
+                for (uuid, vm_status) in &vms {
+                    println!("VM UUID: {}", uuid);
+                    println!("Uptime: {}", vm_status.uptime);
+                    println!("---------------------------");
+                    if check_uptime(&vm_status.uptime) {
+                        up_time_enough = true;
+                        break;
+                    }
+                }
+
+                if up_time_enough {
                     break;
                 }
             }
         }
+
         ensure_zk!(up_time_enough, zkerr!(ZkErrorCode::UpTimeNotEnough));
     } else {
-        ensure_zk!(true,zkerr!(ZkErrorCode::EmptyPlainResponse));
+        ensure_zk!(true, zkerr!(ZkErrorCode::EmptyPlainResponse));
     }
 
     Ok(())
 }
 
-fn parse_uptime(uptime: &str) -> Option<u64> {
-    // Extra years, months, days, hours, minutes, seconds
-    let re = Regex::new(r"(?:(?P<years>\d+)y)?(?:(?P<months>\d+)mo?)?(?:(?P<days>\d+)d)?(?:(?P<hours>\d+)h)?(?:(?P<minutes>\d+)m)?(?:(?P<seconds>\d+)s)?").unwrap();
-    if let Some(caps) = re.captures(uptime) {
-        let years: u64 = caps
-            .name("years")
-            .map_or(0, |m| m.as_str().parse().unwrap_or(0));
-        let months: u64 = caps
-            .name("months")
-            .map_or(0, |m| m.as_str().parse().unwrap_or(0));
-        let days: u64 = caps
-            .name("days")
-            .map_or(0, |m| m.as_str().parse().unwrap_or(0));
-        let hours: u64 = caps
-            .name("hours")
-            .map_or(0, |m| m.as_str().parse().unwrap_or(0));
-        let minutes: u64 = caps
-            .name("minutes")
-            .map_or(0, |m| m.as_str().parse().unwrap_or(0));
-        let seconds: u64 = caps
-            .name("seconds")
-            .map_or(0, |m| m.as_str().parse().unwrap_or(0));
-
-        // Convert to minutes
-        Some(
-            years * 365 * 24 * 60
-                + months * 30 * 24 * 60
-                + days * 24 * 60
-                + hours * 60
-                + minutes
-                + seconds / 60,
-        )
-    } else {
-        None
+fn check_uptime(uptime: &str) -> bool {
+    if uptime.contains("years")
+        || uptime.contains("year")
+        || uptime.contains("months")
+        || uptime.contains("month")
+        || uptime.contains("days")
+        || uptime.contains("day")
+        || uptime.contains("hours")
+        || uptime.contains("hour")
+    {
+        return true;
     }
+
+    if let Some(pos) = uptime.find("minutes") {
+        let num_str: String = uptime[..pos]
+            .chars()
+            .rev()
+            .take_while(|c| c.is_ascii_digit())
+            .collect::<String>()
+            .chars()
+            .rev()
+            .collect();
+
+        if let Ok(minutes) = num_str.parse::<u64>() {
+            return minutes > 10;
+        }
+    }
+    false
 }
 
 pub fn main() {

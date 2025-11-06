@@ -44,12 +44,16 @@ fn main() {
     let (riscv_proof, embed_proof) = client
         .prove(stdin_builder)
         .expect("Failed to generate proof");
+    println!("success1");
 
     // Save the proof
     let _ = fs::create_dir_all(&opt.output_dir).unwrap();
+    println!("success2");
+
     client
         .write_onchain_data(&opt.output_dir, &riscv_proof, &embed_proof)
         .unwrap();
+    println!("success3")
 }
 
 /// Loads an ELF file from the specified path.
