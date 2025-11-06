@@ -12,7 +12,7 @@ use anyhow::{Result, anyhow};
 use pico_sdk::io::{commit, read_as};
 use regex::Regex;
 use serde_json::{Value, json};
-use zktls_att_verification::attestation_data::verify_attestation_data;
+use zktls_att_verification::attestation_data::{AttestationData, verify_attestation_data};
 
 fn app_main() -> Result<()> {
     let attestation_data: String = read_as();
@@ -37,11 +37,39 @@ fn app_main() -> Result<()> {
     let (attestation_data, _, messages) =
         verify_attestation_data(&attestation_data, &attestion_confg.to_string())?;
     println!("verify success");
+    let source = extra_data_source(&attestation_data);
+    println!("source is ${source}");
+    if (source.eq("phala")) {
+        return handle_phala(&attestation_data);
+    } else if (source.eq("binance")) {
+    } else {
+        ensure_zk!(true, zkerr!(ZkErrorCode::NotSupportSource));
+    }
+    Ok(())
+}
 
-    commit(&attestation_data.public_data);
+// Extra source from attestation
+fn extra_data_source(attestation_data: &AttestationData) -> &'static str {
+    if let Some(request) = attestation_data
+        .public_data
+        .get(0)
+        .and_then(|pd| pd.attestation.request.get(0))
+    {
+        let url = &request.url;
 
-    // Please handle it according to your actual business requirements.
-    // Here is just a demonstration.
+        if url.contains("cloud-api.phala.network") {
+            "phala"
+        } else if url.contains("api.binance.com") {
+            "binance"
+        } else {
+            "unknown"
+        }
+    } else {
+        "unknown"
+    }
+}
+
+fn handle_phala(attestation_data: &AttestationData) -> Result<()> {
     if let Some(responses) = attestation_data.private_data.plain_json_response.as_ref() {
         let mut up_time_enough = false;
 
@@ -62,7 +90,6 @@ fn app_main() -> Result<()> {
     } else {
         ensure_zk!(true, zkerr!(ZkErrorCode::EmptyPlainResponse));
     }
-
     Ok(())
 }
 
@@ -71,7 +98,7 @@ fn check_all_vm_uptime(vms: &VmStatusMap) -> bool {
 
     for (_uuid, vm_status) in vms {
         let uptime = &vm_status.uptime;
-
+        // if time unit is hour and others, uptime meets the requirement
         if uptime.contains("day")
             || uptime.contains("days")
             || uptime.contains("hour")
@@ -83,12 +110,12 @@ fn check_all_vm_uptime(vms: &VmStatusMap) -> bool {
             || uptime.contains("years")
         {
             return true;
-        }
-
+        } 
+        // Compute total time of cvms
         total_seconds += parse_minutes_seconds(uptime);
     }
     println!("VM uptime: {}", total_seconds);
-    total_seconds >= 10*60
+    total_seconds >= 10 * 60
 }
 
 fn parse_minutes_seconds(uptime: &str) -> u64 {
@@ -108,7 +135,6 @@ fn parse_minutes_seconds(uptime: &str) -> u64 {
 
     seconds
 }
-
 
 pub fn main() {
     if let Err(e) = app_main() {

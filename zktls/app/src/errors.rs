@@ -17,7 +17,8 @@ pub enum ZkErrorCode {
     InvalidRequestUrl,
     DuplicateAccount,
     EmptyPlainResponse,
-    UpTimeNotEnough
+    UpTimeNotEnough,
+    NotSupportSource
 }
 
 pub struct ZktlsError {
