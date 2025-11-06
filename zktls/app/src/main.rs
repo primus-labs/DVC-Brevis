@@ -54,19 +54,7 @@ fn app_main() -> Result<()> {
                 commit(&user_info.email);
             } else {
                 let vms: VmStatusMap = serde_json::from_str(content)?;
-                for (uuid, vm_status) in &vms {
-                    println!("VM UUID: {}", uuid);
-                    println!("Uptime: {}", vm_status.uptime);
-                    println!("---------------------------");
-                    if check_uptime(&vm_status.uptime) {
-                        up_time_enough = true;
-                        break;
-                    }
-                }
-
-                if up_time_enough {
-                    break;
-                }
+                up_time_enough = check_all_vm_uptime(&vms);
             }
         }
 
@@ -78,35 +66,49 @@ fn app_main() -> Result<()> {
     Ok(())
 }
 
-fn check_uptime(uptime: &str) -> bool {
-    if uptime.contains("years")
-        || uptime.contains("year")
-        || uptime.contains("months")
-        || uptime.contains("month")
-        || uptime.contains("days")
-        || uptime.contains("day")
-        || uptime.contains("hours")
-        || uptime.contains("hour")
-    {
-        return true;
+fn check_all_vm_uptime(vms: &VmStatusMap) -> bool {
+    let mut total_seconds: u64 = 0;
+
+    for (_uuid, vm_status) in vms {
+        let uptime = &vm_status.uptime;
+
+        if uptime.contains("day")
+            || uptime.contains("days")
+            || uptime.contains("hour")
+            || uptime.contains("h")
+            || uptime.contains("hours")
+            || uptime.contains("month")
+            || uptime.contains("months")
+            || uptime.contains("year")
+            || uptime.contains("years")
+        {
+            return true;
+        }
+
+        total_seconds += parse_minutes_seconds(uptime);
     }
+    println!("VM uptime: {}", total_seconds);
+    total_seconds >= 10*60
+}
 
-    if let Some(pos) = uptime.find("minutes") {
-        let num_str: String = uptime[..pos]
-            .chars()
-            .rev()
-            .take_while(|c| c.is_ascii_digit())
-            .collect::<String>()
-            .chars()
-            .rev()
-            .collect();
+fn parse_minutes_seconds(uptime: &str) -> u64 {
+    let mut seconds = 0u64;
 
-        if let Ok(minutes) = num_str.parse::<u64>() {
-            return minutes > 10;
+    for part in uptime.split_whitespace() {
+        if part.ends_with('m') {
+            if let Ok(n) = part.trim_end_matches('m').parse::<u64>() {
+                seconds += n * 60;
+            }
+        } else if part.ends_with('s') {
+            if let Ok(n) = part.trim_end_matches('s').parse::<u64>() {
+                seconds += n;
+            }
         }
     }
-    false
+
+    seconds
 }
+
 
 pub fn main() {
     if let Err(e) = app_main() {
