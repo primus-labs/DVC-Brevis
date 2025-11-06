@@ -1,0 +1,86 @@
+{
+  "verification_type": "HASH_COMPARSION",
+  "public_data": [
+    {
+      "attestation": {
+        "recipient": "0x8F0D4188307496926d785fB00E08Ed772f3be890",
+        "request": [
+          {
+            "url": "https://www.binance.com/bapi/earn/v2/private/lending/union/purchaseRecord/list?",
+            "header": "",
+            "method": "GET",
+            "body": ""
+          },
+          {
+            "url": "https://www.binance.com/bapi/earn/v1/private/lending/union/redemption/list?",
+            "header": "",
+            "method": "GET",
+            "body": ""
+          },
+          {
+            "url": "https://www.binance.com/bapi/earn/v1/private/finance-earn/position/group-by-asset?",
+            "header": "",
+            "method": "GET",
+            "body": ""
+          }
+        ],
+        "responseResolves": [
+          {
+            "oneUrlResponseResolve": [
+              {
+                "keyName": "subscriptionList",
+                "parseType": "",
+                "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256\",\"field\":\"$\"}"
+              }
+            ]
+          },
+          {
+            "oneUrlResponseResolve": [
+              {
+                "keyName": "redemptionList",
+                "parseType": "",
+                "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256\",\"field\":\"$\"}"
+              }
+            ]
+          },
+          {
+            "oneUrlResponseResolve": [
+              {
+                "keyName": "assetDetails",
+                "parseType": "",
+                "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256\",\"field\":\"$\"}"
+              }
+            ]
+          }
+        ],
+        "data": "{\"assetDetails\":\"043fd04acba0166ba8c14e488801bc0e771d731a53399230f6d16bb568005c14\",\"assetDetails.count\":\"1\",\"redemptionList\":\"c07aee2ec2b3c9c24986d24d4a31b19872f2c99a067cd52c472019f197944cc7\",\"redemptionList.count\":\"1\",\"subscriptionList\":\"6d3fceb431d47644a9f5f90584b6f4c2b97909863f47e4228d91529abfe22064\",\"subscriptionList.count\":\"1\"}",
+        "attConditions": "[{\"op\":\"REVEAL_HEX_STRING\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256\\\",\\\"field\\\":\\\"$\\\"}\"},{\"op\":\"REVEAL_HEX_STRING\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256\\\",\\\"field\\\":\\\"$\\\"}\"},{\"op\":\"REVEAL_HEX_STRING\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256\\\",\\\"field\\\":\\\"$\\\"}\"}]",
+        "timestamp": 1762418200562,
+        "additionParams": "{\"pageSize\":100,\"startTime\":1762185600000,\"endTime\":1762444799000,\"asset\":\"USDC\",\"algorithmType\":\"proxytls\"}"
+      },
+      "attestor": "0x0de886e31723e64aa72e51977b14475fb66a9f72",
+      "signature": "0x39890dfd3fc8d712e46b81d93a4d771e1f2032c658fb9dc4812041f7f103c2bb62da3fbe770e31467484fd8e364150cf1f1172900523ca28b9157d0afe9f73531c",
+      "reportTxHash": "0x9924d7b184ef379d28ea710ac63c5de3b565f6fd32887880d27e02ae95482839",
+      "taskId": "0xbb5aaaf2a39bfc06e0d965045979900df97878b054a09a4ce59f8d8b40bf3393",
+      "attestorUrl": "d511b29f688cd0c2d7d9ec3e148e51b63a5390cf-18080.dstack-base-prod7.phala.network",
+      "attestationTime": 1762418200562
+    }
+  ],
+  "private_data": {
+    "plain_json_response": [
+      {
+        "id": "subscriptionList",
+        "content": "{\"code\":\"000000\",\"message\":\"null\",\"messageDetail\":null,\"data\":[{\"id\":\"10109892696\",\"createTimestamp\":\"1762410562000\",\"productName\":\"USDC\",\"productId\":\"USDC001\",\"userId\":\"782151446\",\"asset\":\"USDC\",\"lot\":\"0\",\"amount\":\"0.50867486\",\"startTime\":null,\"status\":\"SUCCESS\",\"lendingType\":\"DAILY\",\"type\":\"AUTO_PURCHASE\",\"clientPurchaseId\":null,\"currencySource\":\"SPOT\",\"currencySourceDetail\":null},{\"id\":\"10100622166\",\"createTimestamp\":\"1762324376000\",\"productName\":\"USDC\",\"productId\":\"USDC001\",\"userId\":\"782151446\",\"asset\":\"USDC\",\"lot\":\"0\",\"amount\":\"0.50859817\",\"startTime\":null,\"status\":\"SUCCESS\",\"lendingType\":\"DAILY\",\"type\":\"AUTO_PURCHASE\",\"clientPurchaseId\":null,\"currencySource\":\"SPOT\",\"currencySourceDetail\":null},{\"id\":\"10090867844\",\"createTimestamp\":\"1762238288000\",\"productName\":\"USDC\",\"productId\":\"USDC001\",\"userId\":\"782151446\",\"asset\":\"USDC\",\"lot\":\"0\",\"amount\":\"0.50851748\",\"startTime\":null,\"status\":\"SUCCESS\",\"lendingType\":\"DAILY\",\"type\":\"AUTO_PURCHASE\",\"clientPurchaseId\":null,\"currencySource\":\"SPOT\",\"currencySourceDetail\":null}],\"total\":3,\"success\":true}"
+      },
+      {
+        "id": "redemptionList",
+        "content": "{\"code\":\"000000\",\"message\":\"null\",\"messageDetail\":null,\"data\":[{\"userId\":\"782151446\",\"projectId\":\"USDC001\",\"lot\":null,\"createTimestamp\":\"1762416801000\",\"amount\":\"1.00000000\",\"principal\":\"1.00000000\",\"interest\":null,\"payedPrincipal\":null,\"payedInterest\":null,\"startTime\":\"1762387200000\",\"asset\":\"USDC\",\"projectName\":\"USDC\",\"status\":\"PAID\",\"lendingType\":\"DAILY\",\"type\":\"FAST\",\"clientRedeemId\":null,\"deliverDate\":\"1762387200000\",\"id\":\"767106491\",\"currencyTarget\":\"SPOT\"}],\"total\":1,\"success\":true}"
+      },
+      {
+        "id": "assetDetails",
+        "content": "{\"code\":\"000000\",\"message\":\"null\",\"messageDetail\":null,\"data\":{\"assets\":[\"USDC\"],\"assetDetails\":[{\"asset\":\"USDC\",\"asset2\":null,\"amount\":\"4642.28931271\",\"amountInBTC\":\"0.04495604\",\"amountInUSD\":\"4642.28931271\",\"type\":\"NORMAL\",\"pdTradeDeadline\":null,\"pdDepositDeadline\":null,\"pdAnnounceUrl\":null,\"isPhaseOut\":false,\"percentage\":\"1.00000000\"}],\"productDetails\":[{\"businessType\":\"LENDING_FLEXIBLE\",\"amountInBTC\":\"0.04495604\",\"amountInUSD\":\"4642.28931271\",\"percentage\":\"1.00000000\"}]},\"success\":true}"
+      }
+    ]
+  },
+  "requestId": "0xbb5aaaf2a39bfc06e0d965045979900df97878b054a09a4ce59f8d8b40bf3393"
+}

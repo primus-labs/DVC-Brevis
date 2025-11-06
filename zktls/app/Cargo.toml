@@ -15,5 +15,6 @@ anyhow = { version = "1.0.40", default-features = false }
 thiserror = "2.0.17"
 regex = "1.12.2"
 
+
 [patch.crates-io]
 ecdsa-core = { git = "https://github.com/brevis-network/signatures", package = "ecdsa", branch = "patch-v1.0.1" }

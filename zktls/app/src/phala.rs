@@ -1,5 +1,8 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use pico_sdk::io::commit;
+use zktls_att_verification::attestation_data::AttestationData;
+use crate::ensure_zk;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct VmStatus {
@@ -37,4 +40,7 @@ pub struct UserInfo {
 
 
 pub type VmStatusMap = HashMap<String, VmStatus>;
+
+
+
 
