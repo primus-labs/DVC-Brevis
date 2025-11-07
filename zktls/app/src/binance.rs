@@ -23,6 +23,75 @@ pub struct ApiResponse<T> {
     pub success: bool,
 }
 
+// =======Position info
+#[derive(Debug, Serialize, Deserialize)]
+pub struct PositionInfo {
+    #[serde(rename = "userId")]
+    pub user_id: String,
+
+    pub asset: String,
+    pub token: String,
+
+    #[serde(rename = "productId")]
+    pub product_id: String,
+
+    #[serde(rename = "productName")]
+    pub product_name: String,
+
+    pub apr: String,
+
+    #[serde(rename = "dailyInterestRate")]
+    pub daily_interest_rate: Option<String>,
+
+    #[serde(rename = "annualInterestRate")]
+    pub annual_interest_rate: String,
+
+    #[serde(rename = "avgAnnualInterestRate")]
+    pub avg_annual_interest_rate: Option<String>,
+
+    #[serde(rename = "marketApr")]
+    pub market_apr: String,
+
+    #[serde(rename = "exchangeRate")]
+    pub exchange_rate: String,
+
+    #[serde(rename = "tokenAmount")]
+    pub token_amount: String,
+
+    #[serde(rename = "totalAmount")]
+    pub total_amount: String,
+
+    #[serde(rename = "experienceCouponTotalInterest")]
+    pub experience_coupon_total_interest: Option<String>,
+
+    #[serde(rename = "lockedAmount")]
+    pub locked_amount: String,
+
+    #[serde(rename = "freeAmount")]
+    pub free_amount: String,
+
+    #[serde(rename = "freezeAmount")]
+    pub freeze_amount: String,
+
+    #[serde(rename = "totalInterest")]
+    pub total_interest: String,
+
+    #[serde(rename = "expectedInterest")]
+    pub expected_interest: Option<String>,
+
+    #[serde(rename = "canRedeem")]
+    pub can_redeem: bool,
+
+    #[serde(rename = "redeemingAmount")]
+    pub redeeming_amount: String,
+
+    #[serde(rename = "redeemingRecordList")]
+    pub redeeming_record_list: Option<Vec<String>>,
+}
+
+
+
+
 /// ========= Asset Overview (first response) =========
 
 #[derive(Debug, Serialize, Deserialize)]

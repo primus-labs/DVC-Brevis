@@ -17,6 +17,7 @@ use pico_sdk::io::{commit, read_as};
 use regex::Regex;
 use serde_json::{Value, json};
 use zktls_att_verification::attestation_data::{AttestationData, verify_attestation_data};
+use crate::binance::PositionInfo;
 
 fn app_main() -> Result<()> {
     // let now_ts = SystemTime::now();
@@ -39,7 +40,7 @@ fn app_main() -> Result<()> {
             "https://cloud-api.phala.network/api/v1/auth/me?",
             "https://www.binance.com/bapi/earn/v2/private/lending/union/purchaseRecord/list",
             "https://www.binance.com/bapi/earn/v1/private/lending/union/redemption/list?",
-            "https://www.binance.com/bapi/earn/v1/private/finance-earn/position/group-by-asset?"
+            "https://www.binance.com/bapi/earn/v2/private/lending/daily/token/position?"
         ]
     });
     // 1. Verify
@@ -105,7 +106,7 @@ fn handle_binance(attestation_data: &AttestationData) -> Result<()> {
     let mut day_before_yesterday_sell_amount: f64 = 0.0;
 
     //
-    let default_token = "USDC";
+    let default_token = "PHA";
     let mut user_id = String::new();
     if let Some(responses) = attestation_data.private_data.plain_json_response.as_ref() {
         for response in responses {
@@ -115,9 +116,6 @@ fn handle_binance(attestation_data: &AttestationData) -> Result<()> {
                 for sub in subscription_rsp.data {
                     if (!default_token.eq(&sub.asset)) {
                         continue;
-                    }
-                    if(user_id.is_empty()){
-                        user_id = sub.user_id.clone()
                     }
                     // check time
                     let timestamp_str = sub.create_timestamp;
@@ -179,11 +177,15 @@ fn handle_binance(attestation_data: &AttestationData) -> Result<()> {
                 );
             }
             if (response.id.eq("assetDetails")) {
-                let asset_data_rsp: ApiResponse<AssetData> =
+                let asset_data_rsp: ApiResponse<Vec<PositionInfo>> =
                     serde_json::from_str(response.content.as_str())?;
-                for asd in asset_data_rsp.data.asset_details {
+
+                for asd in asset_data_rsp.data{
+                    if (user_id.is_empty()) {
+                        user_id = asd.user_id.clone()
+                    }
                     if (default_token.eq(&asd.asset)) {
-                        today_asset = asd.amount.parse::<f64>()?;
+                        today_asset = asd.free_amount.parse::<f64>()?;
                         println!("{},{}", default_token, today_asset);
                         break;
                     }
