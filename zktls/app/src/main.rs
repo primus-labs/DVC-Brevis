@@ -5,6 +5,8 @@ mod errors;
 mod phala;
 
 pico_sdk::entrypoint!(main);
+
+// use std::time::{SystemTime};
 use crate::{
     binance::{ApiResponse, AssetData, BinanceData, PurchaseRecord, RedeemRecord},
     errors::{ZkErrorCode, ZktlsError},
@@ -17,8 +19,10 @@ use serde_json::{Value, json};
 use zktls_att_verification::attestation_data::{AttestationData, verify_attestation_data};
 
 fn app_main() -> Result<()> {
+    // let now_ts = SystemTime::now();
     let attestation_data: String = read_as();
-    println!("attestation_data:{}", attestation_data);
+
+    // println!("attestation_data:{}", attestation_data);
 
     // 0. Make attestation config
     let v: serde_json::Value = serde_json::from_str(&attestation_data)
@@ -81,40 +85,131 @@ fn handle_binance(attestation_data: &AttestationData) -> Result<()> {
         .get(0)
         .context("public_data is empty")?;
     let now_ts = first_public.attestationTime;
-    let (today_start, yesterday_start, yesterday_end, day_before_start, day_before_end) =
-        get_day_ranges(now_ts);
+    let (
+        today_start,
+        yesterday_start,
+        yesterday_end,
+        day_before_yesterday_start,
+        day_before_yesterday_end,
+    ) = get_day_ranges(now_ts);
+
+    let mut today_asset: f64 = 0.0;
+
+    let mut today_buy_amount: f64 = 0.0;
+    let mut today_sell_amount: f64 = 0.0;
+
+    let mut yesterday_buy_amount: f64 = 0.0;
+    let mut yesterday_sell_amount: f64 = 0.0;
+
+    let mut day_before_yesterday_buy_amount = 0.0;
+    let mut day_before_yesterday_sell_amount: f64 = 0.0;
 
     //
     let default_token = "USDC";
+    let mut user_id = String::new();
     if let Some(responses) = attestation_data.private_data.plain_json_response.as_ref() {
         for response in responses {
-            let mut today_asset: u64 = 0;
             if (response.id.eq("subscriptionList")) {
                 let subscription_rsp: ApiResponse<Vec<PurchaseRecord>> =
                     serde_json::from_str(response.content.as_str())?;
                 for sub in subscription_rsp.data {
-                    println!("{} : {}", sub.asset, sub.amount);
+                    if (!default_token.eq(&sub.asset)) {
+                        continue;
+                    }
+                    if(user_id.is_empty()){
+                        user_id = sub.user_id.clone()
+                    }
+                    // check time
+                    let timestamp_str = sub.create_timestamp;
+                    let timestamp: u64 = timestamp_str.parse::<u64>()?;
+                    let buy_amount = sub.amount.parse::<f64>()?;
+                    if (timestamp >= today_start && timestamp < now_ts) {
+                        today_buy_amount += buy_amount
+                    }
+                    if (timestamp >= yesterday_start && timestamp < yesterday_end) {
+                        yesterday_buy_amount += buy_amount
+                    }
+                    if (timestamp >= day_before_yesterday_start
+                        && timestamp < day_before_yesterday_end)
+                    {
+                        day_before_yesterday_buy_amount += buy_amount
+                    }
                 }
+                println!("{},today_buy_amount: {}", default_token, today_buy_amount);
+                println!(
+                    "{},yesterday_buy_amount:{}",
+                    default_token, yesterday_buy_amount
+                );
+                println!(
+                    "{},day_before_yesterday_buy_amount:{}",
+                    default_token, day_before_yesterday_buy_amount
+                );
             }
             if (response.id.eq("redemptionList")) {
                 let redeem_rsp: ApiResponse<Vec<RedeemRecord>> =
                     serde_json::from_str(response.content.as_str())?;
                 for red in redeem_rsp.data {
-                    println!("{} : {}", red.asset, red.amount);
+                    if (!default_token.eq(&red.asset)) {
+                        continue;
+                    }
+                    // check time
+                    let timestamp_str = red.create_timestamp;
+                    let timestamp: u64 = timestamp_str.parse::<u64>()?;
+                    let sell_amount = red.amount.parse::<f64>()?;
+                    if (timestamp >= today_start && timestamp < now_ts) {
+                        today_sell_amount += sell_amount
+                    }
+                    if (timestamp >= yesterday_start && timestamp < yesterday_end) {
+                        yesterday_sell_amount += sell_amount
+                    }
+                    if (timestamp >= day_before_yesterday_start
+                        && timestamp < day_before_yesterday_end)
+                    {
+                        day_before_yesterday_sell_amount += sell_amount
+                    }
                 }
+                println!("{},today_sell_amount: {}", default_token, today_sell_amount);
+                println!(
+                    "{},yesterday_sell_amount:{}",
+                    default_token, yesterday_sell_amount
+                );
+                println!(
+                    "{},day_before_yesterday_sell_amount:{}",
+                    default_token, day_before_yesterday_sell_amount
+                );
             }
             if (response.id.eq("assetDetails")) {
                 let asset_data_rsp: ApiResponse<AssetData> =
                     serde_json::from_str(response.content.as_str())?;
                 for asd in asset_data_rsp.data.asset_details {
                     if (default_token.eq(&asd.asset)) {
-                        // today_asset = asd.amount.parse::<u64>()?;
+                        today_asset = asd.amount.parse::<f64>()?;
+                        println!("{},{}", default_token, today_asset);
                         break;
                     }
                 }
             }
         }
     }
+    // compute average amount of the past 3 days
+    let yesterday_end_amount = today_asset - today_buy_amount + today_sell_amount;
+    let day_before_yesterday_end_amount =
+        yesterday_end_amount - yesterday_buy_amount + yesterday_sell_amount;
+    let two_day_before_yesterday_end_amount = day_before_yesterday_end_amount
+        - day_before_yesterday_buy_amount
+        + day_before_yesterday_sell_amount;
+    let average_past_3_days = (yesterday_end_amount
+        + day_before_yesterday_end_amount
+        + two_day_before_yesterday_end_amount)
+        / 3.0;
+    println!("user_id = {}", user_id);
+    println!(
+        "{} average amount in the past 3 days:{}",
+        default_token, average_past_3_days
+    );
+    commit(&user_id);
+    commit(&average_past_3_days);
+
     Ok(())
 }
 
