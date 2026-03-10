@@ -2,7 +2,6 @@
 pico_sdk::entrypoint!(main);
 use anyhow::{anyhow, Result};
 use pico_sdk::io::{commit, read_as};
-use serde_json::Value;
 use zktls_att_verification::attestation_data::verify_attestation_data;
 
 const ATTESTATION_CONFIG: &str = r#"{
@@ -16,7 +15,7 @@ fn app_main() -> Result<()> {
     let attestation_data: String = read_as();
 
     // 1. Verify
-    let (attestation_data, _, messages) =
+    let (attestation_data, _, _messages) =
         verify_attestation_data(&attestation_data, ATTESTATION_CONFIG)?;
     commit(&attestation_data.public_data);
 
@@ -31,14 +30,10 @@ fn app_main() -> Result<()> {
         return Err(anyhow!("Invalid request url!"));
     }
 
-    // 3. Do some calculations and so on
     {
-        // Get the kyc Status id by `data.kycStatus`
-        let mut json_paths = vec![];
-        json_paths.push("$.data.kycStatus");
-        let kyc_status = messages[0].get_json_values(&json_paths)?;
-        println!("kycStatus:{:?}", kyc_status);
-        commit(&kyc_status);
+        // using the kyc status
+        let kyc_status = attestation_data.private_data.content.unwrap();
+        println!("kyc_status {:#?}", kyc_status);
     }
 
     Ok(())
