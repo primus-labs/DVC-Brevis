@@ -1,5 +1,10 @@
 # DVC-Brevis
 
+## Overview
+
+This example demonstrates how to verify the Binance KYC status using zkTLS and zkVM.
+
+An attestation is first generated via Primus zkTLS from the Binance KYC status API. The attestation is then verified inside the Brevis zkVM. After the attestation is successfully validated, the program proceeds to execute the corresponding business logic.
 
 ## Prerequisite
 
