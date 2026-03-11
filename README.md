@@ -19,9 +19,9 @@ The end-to-end workflow follows a two-stage process:
 
 - **Verified Fields (`data` object)**:
 
-  - `github_id_in_html`: The `profile_user_id` extracted from the HTML metadata of the profile being viewed.
+  - `github_id_in_html`: The `profile_user_id` extracted from the HTML metadata of the profile being viewed (e.g., 34767505).
 
-  - `github_id`: The unique numerical identifier extracted from the `avatarUrl`. This represents the **authenticated account** currently logged in.
+  - `github_id`: The unique numerical identifier extracted from the `avatarUrl` (e.g., 8588607). This represents the **authenticated account** currently logged in.
 
     > **Security Note:** The zkVM should compare `github_id` with `github_id_in_html`. If they do not match, it indicates the user is attempting to generate a proof using someone else's profile page. In this case, the verification session is invalidated to ensure data ownership.
 
