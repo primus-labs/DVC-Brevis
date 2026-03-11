@@ -5,7 +5,7 @@ This example demonstrates how to verify diverse Web2 data sources by leveraging 
 The end-to-end workflow follows a two-stage process:
 
 1. **Data Attestation (Primus zkTLS):** On the client side, a browser extension uses zkTLS to generate cryptographic proofs of specific Web2 data items, ensuring data authenticity and privacy at the source.
-2. **Computation & Verification (Brevis zkVM):** These raw data items along with the hased version are then fed into the Brevis zkVM, which executes custom business logic (such as threshold checks, aggregations, or complex calculations) to gengerat a final verification. 
+2. **Computation & Verification (Brevis zkVM):** These raw data items, along with the hashed version, are then fed into the Brevis zkVM, which executes custom business logic (such as threshold checks, aggregations, or complex calculations) to generate a final verification. 
 
 ## Data Sources and Format
 
@@ -15,7 +15,7 @@ The end-to-end workflow follows a two-stage process:
 
 ### 2. Github
 
-- **Description**: Verifies a user's GitHub user id, contribution history in last year, and account longevity.
+- **Description**: Verifies a user's GitHub user id, contribution history in the last year, and account longevity.
 
 - **Verified Fields (`data` object)**:
 
@@ -32,7 +32,24 @@ The end-to-end workflow follows a two-stage process:
 - **Attestation data in plaintext**
 
 ```
- "data": "{\"github_id_in_html\":\"{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:34767505,&quot;target&quot;:&quot;CONTRIBUTION_YEAR_LINK&quot;,&quot;user_id&quot;:34767505,&quot;originating_url&quot;:&quot;https://github.com/xudean?action=show&amp;controller=profiles&amp;tab=contributions&amp;user_id=xudean&quot;}}\",\"contribution\":\"1,040\\n      contributions\\n        in the last year\",\"github_id\":\"https://avatars.githubusercontent.com/u/34767505?v=4\",\"years\":\"[\\\"2026\\\",\\\"2025\\\",\\\"2024\\\",\\\"2023\\\",\\\"2022\\\",\\\"2021\\\",\\\"2020\\\",\\\"2019\\\",\\\"2018\\\",\\\"2017\\\"]\"}"
+"private_data": [
+  {
+    "id": "github_id_in_html",
+    "content": "[\"{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:34767505,&quot;target&quot;:&quot;CONTRIBUTION_YEAR_LINK&quot;,&quot;user_id&quot;:8588607,&quot;originating_url&quot;:&quot;https://github.com/xudean?action=show&amp;controller=profiles&amp;tab=contributions&amp;user_id=xudean&quot;}}\"]"
+  },
+  {
+    "id": "contribution",
+    "content": "[\"1,040\\n      contributions\\n        in the last year\"]"
+  },
+  {
+    "id": "github_id",
+    "content": "[\"https://avatars.githubusercontent.com/u/8588607?v=4\"]"
+  },
+  {
+    "id": "years",
+    "content": "\"2026\",\"2025\",\"2024\",\"2023\",\"2022\",\"2021\",\"2020\",\"2019\",\"2018\",\"2017\"]"
+  }
+]
 ```
 
 ### 3. Steam
