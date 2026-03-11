@@ -11,11 +11,18 @@ The end-to-end workflow follows a two-stage process:
 
 ### 1. CEXs (Binance, OKX)
 
-- in progress
+#### Binance
+
+- **Description**: Verifies a user's Binance user ID, KYC level, and transaction history list.
+
+- **Verified Fields (`data` object)**:
+  - `userId`: The unique identifier for the Binance account.
+  - `passKycLevel`: The current KYC level of the user (e.g., `"INTERMEDIATE"`).
+  - `list`: A verified list of asset transaction history in the past 6 months.
 
 ### 2. Github
 
-- **Description**: Verifies a user's GitHub user id, contribution history in the last year, and account longevity.
+- **Description**: Verifies a user's GitHub user ID, contribution history in the last year, and account longevity.
 
 - **Verified Fields (`data` object)**:
 
@@ -58,7 +65,7 @@ The end-to-end workflow follows a two-stage process:
 
 - **Verified Fields (`data` object)**:
 
-  - **`steam_id`**: The user's unique Steam ID contained within the `href` attribute of the profile link. (e.g., `76561198382985081`)
+  - **`profile_info`**: The user's unique Steam ID contained within the `href` attribute of the profile link. (e.g., `76561198382985081`)
 
   - **`purchase_history`**: The verified raw table containing transaction dates, item names (e.g., *"Chivalry 2"*, *"Wallpaper Engine"*), and total prices (e.g., *"¥ 116.00"*). 
 
