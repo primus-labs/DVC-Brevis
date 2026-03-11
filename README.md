@@ -63,6 +63,15 @@ The end-to-end workflow follows a two-stage process:
 
 ## Technical Data Structure
 
+All data passed to the zkVM is in a format like this:
+
+- https://github.com/primus-labs/DVC-Brevis/blob/brevis/zktls/prover/data/binance_kyc_status.json
+
+The main difference between data sources lies in the content of the `private_data` field.
+
+The `private_data` field contains the plaintext data returned by the data source. The zkVM needs to extract this plaintext data and then perform the corresponding business logic computations.
+
+For the meaning of the specific data fields, please refer to the [Data Sources and Format](https://github.com/primus-labs/DVC-Brevis/tree/brevis?tab=readme-ov-file#data-sources-and-format) section.
 
 
 ## Integration Guide
