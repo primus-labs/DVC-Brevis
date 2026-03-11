@@ -62,7 +62,7 @@ The end-to-end workflow follows a two-stage process:
 
   - **`purchase_history`**: The verified raw table containing transaction dates, item names (e.g., *"Chivalry 2"*, *"Wallpaper Engine"*), and total prices (e.g., *"¥ 116.00"*). 
 
-    > **Note 1** The zkVM parses the purchase history table to calculate the total net spend ( purchase price - refund price) and can verify 2 conditions:
+    > **Note 1:** The zkVM parses the purchase history table to calculate the total net spend ( purchase price - refund price) and can verify 2 conditions:
     >
     > 1. **Limited Account Check**: If the total spend is less than $5, the account is flagged as a Limited Account.
     > 2. **Game Library Value**: Determines if the total value of games purchased exceeds $50.
