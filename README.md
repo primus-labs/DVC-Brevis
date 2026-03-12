@@ -82,7 +82,7 @@ The end-to-end workflow follows a two-stage process:
 
   - **Account ID**: Parses  `github_id_in_html` and  `github_id` to extract two github IDs. Performs a strict comparison between them: If they do not match, terminate the verification process with an error. If they match, set this GitHub ID as the user's unique identifier and account ID. *(zkVM Public: Hash)*
 
-  - **Contributions Number**: Parse the  `contribution` field to extract the specific number of contributions. Compares the specific number against the threshold provided by the business rules (e.g., more than 50 contributions). *(zkVM Public: Comparison Result)*
+  - **Contributions Number**: Parse the  `contribution` field to extract the specific number of contributions. Compares the specific number against the threshold provided by the business rules (e.g., > 50 contributions). *(zkVM Public: Comparison Result)*
  
   - **Registration Time**: Parses the `years` array to find the earliest years as the account registration time. Compares the earliest years against the time threshold provided by the business rules (e.g., registered for more than 5 years). *(zkVM Public: Comparison Result)* 
 
@@ -152,7 +152,7 @@ The end-to-end workflow follows a two-stage process:
 
   - **Account ID**: Parses the `href` in `profile_info` to extract the unique 17-digit Steam ID. *(zkVM Public: Hash)*
 
-  - **Game Library Value**: Parses the purchase history table to calculate the total net spend (purchase price - refund price) and sets this value as the game library value. Compares the value against the spending threshold provided by the business rules (e.g., $50). *(zkVM Public: Comparison Result)*
+  - **Game Library Value**: Parses the purchase history table to calculate the total net spend (purchase price - refund price) and sets this value as the game library value. Compares the value against the spending threshold provided by the business rules (e.g., > $50). *(zkVM Public: Comparison Result)*
 
   - **Limited Account Judgement**: Compare the Game Library Value to $5. If the value is less than $5, the account is flagged as a "Limited Account". *(zkVM Public: Limited Account or not)*
 
