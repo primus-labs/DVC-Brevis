@@ -24,9 +24,9 @@ The end-to-end workflow follows a two-stage process:
 
   - **Account ID**: Parses the `userId` (e.g., 782151446). *(zkVM Public: Hash)*
 
-  - **KYC Level Verification**: Parses the `passKycLevel` (e.g., "INTERMEDIATE") and compares it against the required KYC level provided by the business input (e.g., complete advanced verification).  *(zkVM Public: Comparison Result)*
+  - **KYC Level Verification**: Parses the `passKycLevel` (e.g., "INTERMEDIATE") and compares it against the required KYC level provided by the business rules (e.g., complete advanced verification). *(zkVM Public: Comparison Result)*
  
-  - **Transaction Activity**: Parses the `data` array to count the total number of trade entries from the spot trade history. Compares this count against the transaction threshold provided by the business input (e.g., > 50 trades). *(zkVM Public: Comparison Result)*
+  - **Transaction Activity**: Parses the `data` array to count the total number of trade entries from the spot trade history. Compares this count against the transaction threshold provided by the business rules (e.g., > 50 trades). *(zkVM Public: Comparison Result)*
 
 
 - **Attestation data in plaintext**
@@ -82,9 +82,9 @@ The end-to-end workflow follows a two-stage process:
 
   - **Account ID**: Parses  `github_id_in_html` and  `github_id` to extract two github IDs. Performs a strict comparison between them: If they do not match, terminate the verification process with an error. If they match, set this GitHub ID as the user's unique identifier and account ID. *(zkVM Public: Hash)*
 
-  - **Contributions Number**: Parse the  `contribution` field to extract the specific number of contributions. Compares the specific number against the threshold provided by the business input (e.g., more than 50 contributions). *(zkVM Public: Comparison Result)*
+  - **Contributions Number**: Parse the  `contribution` field to extract the specific number of contributions. Compares the specific number against the threshold provided by the business rules (e.g., more than 50 contributions). *(zkVM Public: Comparison Result)*
  
-  - **Registration Time**: Parses the `years` array to find the earliest years as the account registration time. Compares the earliest years against the time threshold provided by the business input (e.g., registered for more than 5 years). *(zkVM Public: Comparison Result)* 
+  - **Registration Time**: Parses the `years` array to find the earliest years as the account registration time. Compares the earliest years against the time threshold provided by the business rules (e.g., registered for more than 5 years). *(zkVM Public: Comparison Result)* 
 
 - **Attestation data in plaintext**
 
@@ -152,11 +152,11 @@ The end-to-end workflow follows a two-stage process:
 
   - **Account ID**: Parses the `href` in `profile_info` to extract the unique 17-digit Steam ID. *(zkVM Public: Hash)*
 
-  - **Game Library Value**: Parses the purchase history table to calculate the total net spend (purchase price - refund price) and sets this value as the game library value. Compares the value against the spending threshold provided by the business input (e.g., $50). *(zkVM Public: Comparison Result)*
+  - **Game Library Value**: Parses the purchase history table to calculate the total net spend (purchase price - refund price) and sets this value as the game library value. Compares the value against the spending threshold provided by the business rules (e.g., $50). *(zkVM Public: Comparison Result)*
 
   - **Limited Account Judgement**: Compare the Game Library Value to $5. If the value is less than $5, the account is flagged as a "Limited Account". *(zkVM Public: Limited Account or not)*
 
-  - **Registration Time**: Identifies the earliest transaction date in the purchase history to determine the account's creation date and sets this as the account registration time. Compares the date against the time threshold provided by the business input (e.g., registered for more than 5 years). *(zkVM Public: Comparison Result)*
+  - **Registration Time**: Identifies the earliest transaction date in the purchase history to determine the account's creation date and sets this as the account registration time. Compares the date against the time threshold provided by the business rules (e.g., registered for more than 5 years). *(zkVM Public: Comparison Result)*
 
 - **Attestation data in plaintext**
 
