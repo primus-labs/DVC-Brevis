@@ -1,5 +1,5 @@
 [workspace]
-members = ["zktls/*"]
+members = ["zktls/app", "zktls/prover"]
 resolver = "2"
 
 [workspace.dependencies]

@@ -1,13 +1,13 @@
 #![no_main]
 pico_sdk::entrypoint!(main);
-use anyhow::{anyhow, Result};
+use anyhow::Result;
 use pico_sdk::io::{commit, read_as};
 use zktls_att_verification::attestation_data::verify_attestation_data;
 
 const ATTESTATION_CONFIG: &str = r#"{
   "attestor_addr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
   "url": [
-    "https://www.binance.com/bapi/kyc/v2/private/certificate/user-kyc/current-kyc-status"
+    "https://github.com/_global-navigation/payloads.json"
   ]
 }"#;
 
@@ -22,18 +22,12 @@ fn app_main() -> Result<()> {
     // 2. Do some valid checks
     // Please handle it according to your actual business requirements.
 
-    // Here is just a demonstration for checking request url.
-    let request = attestation_data.public_data.request.clone();
-    if request.url
-        != "https://www.binance.com/bapi/kyc/v2/private/certificate/user-kyc/current-kyc-status"
     {
-        return Err(anyhow!("Invalid request url!"));
-    }
-
-    {
-        // using the kyc status
-        let kyc_status = attestation_data.private_data.content.unwrap();
-        println!("kyc_status {:#?}", kyc_status);
+        // using the private_data
+        let private_data = attestation_data.private_data.clone();
+        for _ in private_data {
+            //
+        }
     }
 
     Ok(())
