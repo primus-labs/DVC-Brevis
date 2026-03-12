@@ -42,11 +42,11 @@ The end-to-end workflow follows a two-stage process:
  
 - **Computation via zkVM**
 
-  - **Account ID**: Parses  `github_id_in_html` and  `github_id` to extract two github IDs. Performs a strict comparison between them: If they do not match, terminate the verification process with an error. If they match, set this GitHub ID as the user's unique identifier and account ID.
+  - **Account ID**: Parses  `github_id_in_html` and  `github_id` to extract two github IDs. Performs a strict comparison between them: If they do not match, terminate the verification process with an error. If they match, set this GitHub ID as the user's unique identifier and account ID. (Output: Hash)
 
-  - **Contributions Number**: Parse the  `contribution` field to extract the specific number of contributions.
-
-  - **Registration Time**: Parses the `years` array to find the earliest years as the account registration time.
+  - **Contributions Number**: Parse the  `contribution` field to extract the specific number of contributions. (Output: Plaintext)
+ 
+  - **Registration Time**: Parses the `years` array to find the earliest years as the account registration time. (Output: Plaintext)
 
 - **Attestation data in plaintext**
 
@@ -89,13 +89,13 @@ The end-to-end workflow follows a two-stage process:
 
 - **Computation via zkVM**
 
-  - **Account ID**: Parses the `href` in `profile_info` to extract the unique 17-digit Steam ID.
+  - **Account ID**: Parses the `href` in `profile_info` to extract the unique 17-digit Steam ID. (Output: Hash)
 
-  - **Game Library Value**: Parses the purchase history table to calculate the total net spend (purchase price - refund price) and set this value as the game library value.
+  - **Game Library Value**: Parses the purchase history table to calculate the total net spend (purchase price - refund price) and set this value as the game library value. (Output: Plaintext)
 
-  - **Limited Account Judgement**: Compare the Game Library Value to $5. If the value is less than $5, the account is flagged as a "Limited Account".
+  - **Limited Account Judgement**: Compare the Game Library Value to $5. If the value is less than $5, the account is flagged as a "Limited Account". (Output: Plaintext)
 
-  - **Registration Time**: Identifies the earliest transaction date in the purchase history to determine the account's creation date and sets this as the account registration time.
+  - **Registration Time**: Identifies the earliest transaction date in the purchase history to determine the account's creation date and sets this as the account registration time. (Output: Plaintext)
 
 
 - **Attestation data in plaintext**
