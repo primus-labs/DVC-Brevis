@@ -78,7 +78,7 @@ The end-to-end workflow follows a two-stage process:
     > **Note 2:** The zkVM identifies the earliest transaction date in the purchase history to determine the account's creation date and calculate the account age.
 
     <p align="center">
-    <img src="https://github.com/user-attachments/assets/39acffb2-a99c-462a-b896-9e794092a7b7" width="70%" alt="steam-purchase-history" />
+    <img src="https://github.com/user-attachments/assets/39acffb2-a99c-462a-b896-9e794092a7b7" width="80%" alt="steam-purchase-history" />
     <br>
     <em>Visual Reference: Historical transaction data as seen by the user.</em>
     </p> 
