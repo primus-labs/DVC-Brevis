@@ -65,24 +65,21 @@ The end-to-end workflow follows a two-stage process:
 
 - **Verified Fields (`data` object)**:
 
-  - **`profile_info`**: The user's unique Steam ID contained within the `href` attribute of the profile link. (e.g., `76561198382985081`)
+  - `profile_info`: The user's unique Steam ID contained within the `href` attribute of the profile link. (e.g., `76561198382985081`)
 
-  - **`purchase_history`**: The verified raw table containing transaction dates, item names, and total prices.
-
-  <p align="center">
-  <img src="https://github.com/user-attachments/assets/39acffb2-a99c-462a-b896-9e794092a7b7" width="70%" alt="steam-purchase-history" />
-  <br>
-  <em>Visual Reference: Historical transaction data as seen by the user.</em>
-  </p> 
-
+  - `purchase_history`: The verified raw table containing transaction dates, item names, and total prices.
+  
     > **Note 1:** The zkVM parses the purchase history table to calculate the total net spend (purchase price - refund price) and can verify two conditions:
-    >
     > 1. **Limited Account Check**: If the total spend is less than $5, the account is flagged as a Limited Account.
     > 2. **Game Library Value**: Determines if the total value of games purchased exceeds $50.
-
+    
     > **Note 2:** The zkVM identifies the earliest transaction date in the purchase history to determine the account's creation date and calculate the account age.
 
-
+    <p align="center">
+    <img src="https://github.com/user-attachments/assets/39acffb2-a99c-462a-b896-9e794092a7b7" width="70%" alt="steam-purchase-history" />
+    <br>
+    <em>Visual Reference: Historical transaction data as seen by the user.</em>
+    </p> 
 
 - **Attestation data in plaintext**
 
