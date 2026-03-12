@@ -19,6 +19,9 @@ The end-to-end workflow follows a two-stage process:
   - `userId`: The unique identifier for the Binance account.
   - `passKycLevel`: The current KYC level of the user (e.g., `"INTERMEDIATE"`).
   - `list`: A verified list of asset transaction history in the past 6 months.
+ 
+- **Computation via zkVM**
+
 
 ### 2. Github
 
@@ -35,6 +38,14 @@ The end-to-end workflow follows a two-stage process:
   - `contribution`: A verified string of total contributions in the last year (e.g., `"1,040 contributions"`).
 
   - `years`: A verified array of all years since account creation (e.g., `["2026", "2025", ...]`).
+ 
+- **Computation via zkVM**
+
+  - **Account ID**: Parses  `github_id_in_html` and  `github_id` to extract two github IDs. Performs a strict comparison between them: If they do not match, terminate the verification process with an error. If they match, set this GitHub ID as the user's unique identifier and account ID.
+
+  - **Contributions Number**: Parse the  `contribution` field to extract the specific number of contributions.
+
+  - **Registration Time**: Parses the `years` array to find the earliest years as the account registration time.
 
 - **Attestation data in plaintext**
 
@@ -68,14 +79,6 @@ The end-to-end workflow follows a two-stage process:
   - `profile_info`: The user's unique Steam ID contained within the `href` attribute of the profile link. (e.g., `76561198382985081`)
 
   - `purchase_history`: The verified raw table containing transaction dates, item names, and total prices.
-  
-    > **Note 1:** The zkVM parses the purchase history table to calculate the total net spend (purchase price - refund price) and can verify two conditions:
-    > 
-    > 1.**Limited Account Check**: If the total spend is less than $5, the account is flagged as a Limited Account.
-    > 
-    > 2.**Game Library Value**: Determines if the total value of games purchased exceeds $50.
-    
-    > **Note 2:** The zkVM identifies the earliest transaction date in the purchase history to determine the account's creation date and calculate the account age.
 
     <p align="center">
     <img src="https://github.com/user-attachments/assets/39acffb2-a99c-462a-b896-9e794092a7b7" width="80%" alt="steam-purchase-history" />
@@ -83,6 +86,15 @@ The end-to-end workflow follows a two-stage process:
     <em>Visual Reference: Historical transaction data as seen by the user.</em>
     </p> 
 
+**Computation via zkVM**
+
+  - **Account ID**: Parses the `href` in `profile_info` to extract the unique 17-digit Steam ID.
+
+  - **Game Library Value**: Parses the purchase history table to calculate the total net spend (purchase price - refund price) and set this value as the game library value.
+
+  - **Limited Account Judgement**: Compare the Game Library Value to $5. If the value is less than $5, the account is flagged as a "Limited Account".
+
+  - **Registration Time**: Identifies the earliest transaction date in the purchase history to determine the account's creation date and sets this as the account registration time.
 
 - **Attestation data in plaintext**
 
