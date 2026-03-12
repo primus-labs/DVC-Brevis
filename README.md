@@ -38,6 +38,7 @@ The end-to-end workflow follows a two-stage process:
   - `contribution`: A verified string of total contributions in the last year (e.g., `"1,040 contributions"`).
 
   - `years`: A verified array of all years since account creation (e.g., `["2026", "2025", ...]`).
+
  
 - **Computation via zkVM**
 
@@ -86,7 +87,7 @@ The end-to-end workflow follows a two-stage process:
     <em>Visual Reference: Historical transaction data as seen by the user.</em>
     </p> 
 
-**Computation via zkVM**
+- **Computation via zkVM**
 
   - **Account ID**: Parses the `href` in `profile_info` to extract the unique 17-digit Steam ID.
 
@@ -95,6 +96,7 @@ The end-to-end workflow follows a two-stage process:
   - **Limited Account Judgement**: Compare the Game Library Value to $5. If the value is less than $5, the account is flagged as a "Limited Account".
 
   - **Registration Time**: Identifies the earliest transaction date in the purchase history to determine the account's creation date and sets this as the account registration time.
+
 
 - **Attestation data in plaintext**
 
