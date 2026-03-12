@@ -52,23 +52,44 @@ The end-to-end workflow follows a two-stage process:
 
 ```
 "private_data": [
-  {
-    "id": "github_id_in_html",
-    "content": "[\"{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:34767505,&quot;target&quot;:&quot;CONTRIBUTION_YEAR_LINK&quot;,&quot;user_id&quot;:8588607,&quot;originating_url&quot;:&quot;https://github.com/xudean?action=show&amp;controller=profiles&amp;tab=contributions&amp;user_id=xudean&quot;}}\"]"
-  },
-  {
-    "id": "contribution",
-    "content": "[\"1,040\\n      contributions\\n        in the last year\"]"
-  },
-  {
-    "id": "github_id",
-    "content": "[\"https://avatars.githubusercontent.com/u/8588607?v=4\"]"
-  },
-  {
-    "id": "years",
-    "content": "\"2026\",\"2025\",\"2024\",\"2023\",\"2022\",\"2021\",\"2020\",\"2019\",\"2018\",\"2017\"]"
-  }
-]
+    {
+      "id": "contribution",
+      "salt": "2bb150ea11dbf05522c3edef037b144b",
+      "content": [
+        "20\n      contributions\n        in the last year"
+      ]
+    },
+    {
+      "id": "github_id",
+      "salt": "b363ce2f2dc4318d423e94c749c89236",
+      "content": [
+        "https://avatars.githubusercontent.com/u/25573916?v=4"
+      ]
+    },
+    {
+      "id": "github_id_in_html",
+      "salt": "fea0ef7c912e9b39887e4d9e07c8a73e",
+      "content": [
+        "{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:25573916,&quot;target&quot;:&quot;CONTRIBUTION_YEAR_LINK&quot;,&quot;user_id&quot;:25573916,&quot;originating_url&quot;:&quot;https://github.com/ehisper?action=show&amp;controller=profiles&amp;tab=contributions&amp;user_id=ehisper&quot;}}"
+      ]
+    },
+    {
+      "id": "years",
+      "salt": "44d23d1923b4fdab99ed9147b11d7c46",
+      "content": [
+        "2026",
+        "2025",
+        "2024",
+        "2023",
+        "2022",
+        "2021",
+        "2020",
+        "2019",
+        "2018",
+        "2017"
+      ]
+    }
+  ]
 ```
 
 ### 3. Steam
