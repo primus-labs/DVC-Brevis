@@ -68,8 +68,7 @@ The end-to-end workflow follows a two-stage process:
   - **`profile_info`**: The user's unique Steam ID contained within the `href` attribute of the profile link. (e.g., `76561198382985081`)
 
   - **`purchase_history`**: The verified raw table containing transaction dates, item names (e.g., *"Chivalry 2"*, *"Wallpaper Engine"*), and total prices (e.g., *"¥ 116.00"*).
-    
-    Purchase History Table Reference:
+    *Table reference:*
     <img width="2431" height="465" alt="steam-parchase-history" src="https://github.com/user-attachments/assets/39acffb2-a99c-462a-b896-9e794092a7b7" />
 
     > **Note 1:** The zkVM parses the purchase history table to calculate the total net spend ( purchase price - refund price) and can verify 2 conditions:
