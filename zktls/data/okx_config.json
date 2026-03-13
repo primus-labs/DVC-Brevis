@@ -1,0 +1,24 @@
+{
+  "attestor_addr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
+  "url": [
+    "https://www.okx.com/priapi/v5/account/bills-archive",
+    "https://www.okx.com/v3/users/security/profile"
+  ],
+  "conditions": [
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.data\"}",
+      "reveal_id": "data"
+    },
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.data.uuid\"}",
+      "reveal_id": "uuid"
+    },
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.data.kycLevel\"}",
+      "reveal_id": "kycLevel"
+    }
+  ]
+}

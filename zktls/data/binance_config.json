@@ -1,0 +1,24 @@
+{
+  "attestor_addr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
+  "url": [
+    "https://www.binance.com/bapi/capital/v1/private/streamer/trade/get-user-trades",
+    "https://www.binance.com/bapi/kyc/v2/private/certificate/user-kyc/current-kyc-status"
+  ],
+  "conditions": [
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.data\"}",
+      "reveal_id": "data"
+    },
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.data.userId\"}",
+      "reveal_id": "userId"
+    },
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.data.passKycLevel\"}",
+      "reveal_id": "passKycLevel"
+    }
+  ]
+}

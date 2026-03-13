@@ -1,0 +1,35 @@
+{
+  "attestor_addr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
+  "url": [
+    "https://www.amazon.sg/ax/account/manage",
+    "https://www.amazon.sg/gp/css/order-history",
+    "https://www.amazon.sg/your-orders/orders"
+  ],
+  "conditions": [
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@id=\\\"EMAIL_SUBTITLE\\\"]\"}",
+      "reveal_id": "email"
+    },
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//select[@id=\\\"time-filter\\\"]/option[*]\"}",
+      "reveal_id": "years"
+    },
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//a[@id=\\\"nav-logo-sprites\\\"]?\"}",
+      "reveal_id": "prime_plan"
+    },
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@class=\\\"num-orders\\\"]?\"}",
+      "reveal_id": "last_3_months_orders"
+    },
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@class=\\\"num-orders\\\"]?\"}",
+      "reveal_id": "year_2025_orders"
+    }
+  ]
+}
