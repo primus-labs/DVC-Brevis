@@ -269,7 +269,46 @@ The end-to-end workflow follows a two-stage process:
 ```json
 {
   "private_data": [
-
+    {
+      "id": "email",
+      "salt": "5030787394ba77256c47cfd883f377bd",
+      "content": [
+        "shenminwen@gmail.com"
+      ]
+    },
+    {
+      "id": "last_3_months_orders",
+      "salt": "6dddb723318407402c278b1b0ccca227",
+      "content": [
+        "<span class=\"num-orders\">0 orders</span>"
+      ]
+    },
+    {
+      "id": "prime_plan",
+      "salt": "6c75841bc3a343cf007e432e30fb604b",
+      "content": [
+        "<a href=\"/ref=nav_logo\" id=\"nav-logo-sprites\" class=\"nav-logo-link nav-progressive-attribute\" aria-label=\"Amazon.sg Prime\" lang=\"en\" >\n      <span class=\"nav-sprite nav-logo-base\"></span>\n      <span id=\"logo-ext\" class=\"nav-sprite nav-logo-ext nav-progressive-content\"></span>\n      <span class=\"nav-logo-locale\">.sg</span>\n    </a>"
+      ]
+    },
+    {
+      "id": "year_2025_orders",
+      "salt": "f33e7c1f15252416f2b0c91ed7ddf2c5",
+      "content": [
+        "<span class=\"num-orders\">0 orders</span>"
+      ]
+    },
+    {
+      "id": "years",
+      "salt": "91995cb409c43c9afc33f8070d55de85",
+      "content": [
+        "last 30 days",
+        "past three months",
+        "2026",
+        "2025",
+        "2024"
+      ]
+    }
+  ]
 }
 ```
 
