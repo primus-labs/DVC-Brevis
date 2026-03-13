@@ -1,0 +1,18 @@
+{
+  "attestor_addr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
+  "url": [
+    "https://store.steampowered.com/account/history"
+  ],
+  "conditions": [
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//div[@id=\\\"main_content\\\"]?\"}",
+      "reveal_id": "purchase_history"
+    },
+    {
+      "op": "REVEAL_SALTTED_HASH",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//a[@aria-label=\\\"View your profile\\\"]?\"}",
+      "reveal_id": "profile_info"
+    }
+  ]
+}

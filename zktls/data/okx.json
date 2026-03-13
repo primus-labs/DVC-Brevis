@@ -1,0 +1,55 @@
+{
+  "public_data": {
+    "recipient": "0xB12a1f7035FdCBB4cC5Fa102C01346BD45439Adf",
+    "request": {
+      "url": "https://www.okx.com/priapi/v5/account/bills-archive?_start=1757838520216&_end=1773390520216&limit=100&t=1773390520216",
+      "header": "",
+      "method": "GET",
+      "body": ""
+    },
+    "reponseResolve": [
+      {
+        "keyName": "data",
+        "parseType": "",
+        "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.data\"}"
+      }
+    ],
+    "data": "{\"kycLevel\":\"444e448dd4216b0e91468ce97b290528a1f9f79afa850dbf6f6546ae0dc19265\",\"data\":\"a94f6a3adec74b2c996b917fc038ffb323f26d4ff87e440d816b3c95a502243c\",\"uuid\":\"5746ffdb203aeeaabb007ba26119c3db05be7da4b20f02c7dd1de9cb13253200\"}",
+    "attConditions": "[{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data\\\"}\",\"reveal_id\":\"data\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data.uuid\\\"}\",\"reveal_id\":\"uuid\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data.kycLevel\\\"}\",\"reveal_id\":\"kycLevel\"}]",
+    "timestamp": 1773390527667,
+    "additionParams": "{\"algorithmType\":\"proxytls\",\"needUpdateRequests\":[{\"queryParams\":{\"_start\":1757838520216,\"_end\":1773390520216,\"limit\":100,\"t\":1773390520216}}],\"requests[1].url\":\"https://www.okx.com/v3/users/security/profile?t=1773390522256\",\"requests[1].method\":\"GET\",\"requests[1].body\":\"\",\"requests[1].header\":\"\",\"reponseResolves[1][0].keyName\":\"uuid\",\"reponseResolves[1][0].parseType\":\"\",\"reponseResolves[1][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data.uuid\\\"}\",\"reponseResolves[1][1].keyName\":\"kycLevel\",\"reponseResolves[1][1].parseType\":\"\",\"reponseResolves[1][1].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data.kycLevel\\\"}\"}",
+    "attestors": [
+      {
+        "attestorAddr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
+        "url": "https://primuslabs.xyz"
+      }
+    ],
+    "signatures": [
+      "0xd4595a499d5d71070ca2f885f3180c1422ecda759610be7e223aedc0d71a280c1fe9b37c0f4f6fc899a8bace77957916d725d0cd9d2f0aaad66f8c6a981629b71b"
+    ],
+    "requestid": "e79f1dc7-d2a5-48d9-9fb0-8a001f6f5389"
+  },
+  "private_data": [
+    {
+      "id": "kycLevel",
+      "salt": "0c9a4d0889663c5be0ac080cd820ef86",
+      "content": [
+        "2"
+      ]
+    },
+    {
+      "id": "uuid",
+      "salt": "51d04177f6c72a09e089927de20609cf",
+      "content": [
+        "368977816601172152"
+      ]
+    },
+    {
+      "id": "data",
+      "salt": "0e56b098060dbc1e9714df5b99f521f8",
+      "content": [
+        "[{\"bal\":\"0.4998749937496875\",\"balChg\":\"0.4998749937496875\",\"billId\":\"3384574638364991490\",\"ccy\":\"USDC\",\"clOrdId\":\"settleBlk17733705845030566\",\"displayId\":\"\",\"earnAmt\":\"\",\"earnApr\":\"\",\"execType\":\"\",\"fee\":\"0\",\"fillFwdPx\":\"\",\"fillIdxPx\":\"1\",\"fillMarkPx\":\"\",\"fillMarkVol\":\"\",\"fillPxUsd\":\"\",\"fillPxVol\":\"\",\"fillTime\":\"1773370584517\",\"from\":\"\",\"fromDesc\":\"\",\"instId\":\"USDT-USDC\",\"instType\":\"CONVERT\",\"interest\":\"0\",\"mgnMode\":\"cash\",\"modifyTime\":1773370584517,\"notes\":\"\",\"ordId\":\"3384574638297882624\",\"pnl\":\"0\",\"posBal\":\"0\",\"posBalChg\":\"0\",\"price\":\"0.999749987499375\",\"ruleType\":\"\",\"sId\":\"0\",\"side\":\"\",\"subType\":\"318\",\"subTypeDesc\":\"闪兑买入\",\"sz\":\"0.4998749937496875\",\"tag\":\"\",\"to\":\"\",\"toDesc\":\"\",\"tradeId\":\"3384574638243160064\",\"ts\":\"1773370584517\",\"type\":\"27\",\"typeDesc\":\"闪兑\"},{\"bal\":\"0\",\"balChg\":\"-0.5\",\"billId\":\"3384574638364991489\",\"ccy\":\"USDT\",\"clOrdId\":\"settleBlk17733705845030566\",\"displayId\":\"\",\"earnAmt\":\"\",\"earnApr\":\"\",\"execType\":\"\",\"fee\":\"0\",\"fillFwdPx\":\"\",\"fillIdxPx\":\"1\",\"fillMarkPx\":\"\",\"fillMarkVol\":\"\",\"fillPxUsd\":\"\",\"fillPxVol\":\"\",\"fillTime\":\"1773370584517\",\"from\":\"\",\"fromDesc\":\"\",\"instId\":\"USDT-USDC\",\"instType\":\"CONVERT\",\"interest\":\"0\",\"mgnMode\":\"cash\",\"modifyTime\":1773370584517,\"notes\":\"\",\"ordId\":\"3384574638297882624\",\"pnl\":\"0\",\"posBal\":\"0\",\"posBalChg\":\"0\",\"price\":\"0.999749987499375\",\"ruleType\":\"\",\"sId\":\"0\",\"side\":\"\",\"subType\":\"319\",\"subTypeDesc\":\"闪兑卖出\",\"sz\":\"0.5\",\"tag\":\"\",\"to\":\"\",\"toDesc\":\"\",\"tradeId\":\"3384574638243160064\",\"ts\":\"1773370584517\",\"type\":\"27\",\"typeDesc\":\"闪兑\"}]"
+      ]
+    }
+  ]
+}
