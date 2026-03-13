@@ -60,6 +60,35 @@ The end-to-end workflow follows a two-stage process:
 ```
 
 
+#### OKX
+
+- **Description**: Verifies a user's OKX user ID, KYC level, and past 6 months trading history list.
+
+- **zkTLS Verified Fields (`data` object)**:
+  - `userId`: The unique identifier for the OKX account.
+  - `passKycLevel`: The current KYC level of the user (e.g., `"2"`).
+  - `list`: A verified list of trading history in the past 6 months.
+ 
+- **Computation via zkVM**
+
+  - **Account ID**: Parses the `userId` (e.g., 368977816601172152). *(zkVM Public: Hash)*
+
+  - **KYC Level Verification**: Parses the `passKycLevel` (e.g., "2") and compares it against the required KYC level provided by the business rules (e.g., complete level 2 verification). *(zkVM Public: Comparison Result)*
+ 
+  - **Transaction Activity**: Parses the `data` array to count the total number of trade entries from the trading history. Compares this count against the transaction threshold provided by the business rules (e.g., > 50 trades). *(zkVM Public: Comparison Result)*
+
+
+- **Attestation data in plaintext**
+
+```json
+{
+  "private_data": [
+
+}
+```
+
+
+
 
 ### 2. Github
 
@@ -82,7 +111,7 @@ The end-to-end workflow follows a two-stage process:
 
   - **Account ID**: Parses  `github_id_in_html` and  `github_id` to extract two github IDs. Performs a strict comparison between them: If they do not match, terminate the verification process with an error. If they match, set this GitHub ID as the user's unique identifier and account ID. *(zkVM Public: Hash)*
 
-  - **Contributions Number**: Parse the  `contribution` field to extract the specific number of contributions. Compares the specific number against the threshold provided by the business rules (e.g., > 50 contributions). *(zkVM Public: Comparison Result)*
+  - **Contributions Number**: Parse the `contribution` field to extract the specific number of contributions. Compares the specific number against the threshold provided by the business rules (e.g., > 50 contributions). *(zkVM Public: Comparison Result)*
  
   - **Registration Time**: Parses the `years` array to find the earliest years as the account registration time. Compares the earliest years against the time threshold provided by the business rules (e.g., registered for more than 5 years). *(zkVM Public: Comparison Result)* 
 
@@ -185,7 +214,41 @@ The end-to-end workflow follows a two-stage process:
 
 ### 4. Amazon
 
-- in progress
+- **Description**: Verifies the user's registered email, account age, and order counts.
+
+- **zkTLS Verified Fields (`data` object)**:
+
+  - `email`: The registered email address associated with the Amazon account (e.g., shenminwen@gmail.com).
+ 
+  - `prime_plan`: An HTML snippet of the Amazon header area used to identify Prime membership status (e.g., aria-label="Amazon.sg Prime"). If the user is not a Prime member, this header label does not contain the "Prime" keyword.
+
+  - `years`: An array of strings representing the years since the user's first purchase order (e.g., `["2026", "2025", ...]`).
+
+  - `last_3_months_orders`: An HTML snippet containing the number of orders placed in the past 3 months (e.g., "0 orders").
+
+  - `year_2025_orders`: An HTML snippet containing the number of orders placed in the year 2025 (e.g., 0 orders).
+
+ 
+- **Computation via zkVM**
+
+  - **Account ID (Email Address)**: Parses the `email` field to extract the registered email address. *(zkVM Public: Hash)*
+ 
+  - **Prime Membership Status**: Parses the prime_plan HTML snippet to detect the presence of the "Prime" keyword. (zkVM Public: Prime Member or not)
+
+  - **Orders Volume**: Parses the numerical values from `last_3_months_orders` and `year_2025_orders`, and calculates the sum. Compares the total number of orders against the threshold provided by the business rules (e.g., > 20 orders). *(zkVM Public: Comparison Result)*
+ 
+  - **Account Active Time**: Parses the `years` array to identify the earliest years (e.g., 2024) as the account active starting time. Compares this year against the time threshold provided by the business rules (e.g., active for more than 5 years). *(zkVM Public: Comparison Result)*
+
+
+- **Attestation data in plaintext**
+
+```json
+{
+  "private_data": [
+
+}
+```
+
 
 
 ## Technical Data Structure
