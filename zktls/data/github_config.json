@@ -1,8 +1,8 @@
 {
   "attestor_addr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
   "url": [
-    "https://github.com/_global-navigation/payloads.json",
-    "https://github.com"
+    "https://github.com/_global-navigation/payloads.json?return_to=https%3A%2F%2Fgithub.com%2F&type=user_menu",
+    "<REGEX>https://github\\.com/[A-Za-z0-9-_]+\\?action=show&controller=profiles&tab=contributions&user_id=[A-Za-z0-9-_]+"
   ],
   "conditions": [
     {
