@@ -1,13 +1,13 @@
 {
   "attestor_addr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
   "url": [
-    "https://github.com/_global-navigation/payloads.json",
-    "https://github.com"
+    "https://github.com/_global-navigation/payloads.json?return_to=https%3A%2F%2Fgithub.com%2F",
+    "<REGEX>https://github\\.com/[A-Za-z0-9-_]+\\?action=show&controller=profiles&tab=contributions&user_id=[A-Za-z0-9-_]+"
   ],
   "conditions": [
     {
       "op": "REVEAL_SALTTED_HASH",
-      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.owner.avatarUrl\"}",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.user_menu.owner.avatarUrl\"}",
       "reveal_id": "github_id"
     },
     {
