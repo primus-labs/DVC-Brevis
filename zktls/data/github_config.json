@@ -7,7 +7,7 @@
   "conditions": [
     {
       "op": "REVEAL_SALTTED_HASH",
-      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.owner.avatarUrl\"}",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.user_menu.owner.avatarUrl\"}",
       "reveal_id": "github_id"
     },
     {
