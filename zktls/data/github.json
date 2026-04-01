@@ -1,74 +1,71 @@
 {
   "public_data": {
-    "recipient": "0xB12a1f7035FdCBB4cC5Fa102C01346BD45439Adf",
-    "request": {
-      "url": "https://github.com/_global-navigation/payloads.json?return_to=https%3A%2F%2Fgithub.com%2F&type=user_menu",
-      "header": "",
-      "method": "GET",
-      "body": ""
-    },
-    "reponseResolve": [
-      {
-        "keyName": "github_id",
-        "parseType": "",
-        "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.owner.avatarUrl\"}"
-      }
-    ],
-    "data": "{\"github_id_in_html\":\"1a0e39e9823b657dc62054dcb72e29228c1ddbe703d97b1c0bc4ffcb5d2257ee\",\"contribution\":\"e16201a5e7fb66abb4b6f0a52eb7d22d492bdecadc9c872992648ddae778d1ee\",\"github_id\":\"34a77b8f4567671d97a34ab3291d7f397f08b289753f1ece9a90e3416e3cbf0b\",\"years\":\"002c7df8db0d364fa60c2db22965de1978324c34c2a8a6cc3cd2ea811492eef6\"}",
-    "attConditions": "[{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.owner.avatarUrl\\\"}\",\"reveal_id\":\"github_id\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//h2[@id=\\\\\\\"js-contribution-activity-description\\\\\\\"]\\\"}\",\"reveal_id\":\"contribution\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"year-list-container\\\\\\\"]//ul[@class=\\\\\\\"filter-list small\\\\\\\"]/li[*]/a\\\"}\",\"reveal_id\":\"years\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@id=\\\\\\\"year-link-2026\\\\\\\"]/@data-hydro-click\\\"}\",\"reveal_id\":\"github_id_in_html\"}]",
-    "timestamp": 1773387884459,
-    "additionParams": "{\"algorithmType\":\"proxytls\",\"requests[1].url\":\"https://github.com/fksyuan?action=show&controller=profiles&tab=contributions&user_id=fksyuan\",\"requests[1].method\":\"GET\",\"requests[1].body\":\"\",\"requests[1].header\":\"\",\"reponseResolves[1][0].keyName\":\"contribution\",\"reponseResolves[1][0].parseType\":\"\",\"reponseResolves[1][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//h2[@id=\\\\\\\"js-contribution-activity-description\\\\\\\"]\\\"}\",\"reponseResolves[1][1].keyName\":\"years\",\"reponseResolves[1][1].parseType\":\"\",\"reponseResolves[1][1].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"year-list-container\\\\\\\"]//ul[@class=\\\\\\\"filter-list small\\\\\\\"]/li[*]/a\\\"}\",\"reponseResolves[1][2].keyName\":\"github_id_in_html\",\"reponseResolves[1][2].parseType\":\"\",\"reponseResolves[1][2].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@id=\\\\\\\"year-link-2026\\\\\\\"]/@data-hydro-click\\\"}\"}",
-    "attestors": [
-      {
-        "attestorAddr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
-        "url": "https://primuslabs.xyz"
-      }
-    ],
-    "signatures": [
-      "0x3307d7579db5b484a2597449f4d42402c36ca25ca39f4c3e06a422a632a33fa851ad76ecf681dab879545820cb9ced594425600dd843107fa9dde8caf34fe0351c"
-    ],
-    "requestid": "ae079e0e-bf62-494c-8cf1-45a203a9dbeb"
+      "recipient": "0xB12a1f7035FdCBB4cC5Fa102C01346BD45439Adf",
+      "request": {
+          "url": "https://github.com/_global-navigation/payloads.json?return_to=https%3A%2F%2Fgithub.com%2F",
+          "header": "",
+          "method": "GET",
+          "body": ""
+      },
+      "reponseResolve": [
+          {
+              "keyName": "github_id",
+              "parseType": "",
+              "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.user_menu.owner.avatarUrl\"}"
+          }
+      ],
+      "data": "{\"github_id_in_html\":\"dcaa64a738e1aacf9c94b0a97b583a78456decef3baadd4182570a7e3b692bd0\",\"contribution\":\"a954a3b93aca4b1831887945d9fb7a64701b3f47d0f725943fcb6e643c3f4a97\",\"github_id\":\"1f9e18ef66c5e0db61f60e111d87b0eab74bea438c69dfaa8119f7acf4b74f9b\",\"years\":\"ad02083be47a0778eebd5491538773a7ef904809b235d3958b2db78eeb0e3135\"}",
+      "attConditions": "[{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.user_menu.owner.avatarUrl\\\"}\",\"reveal_id\":\"github_id\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//h2[@id=\\\\\\\"js-contribution-activity-description\\\\\\\"]\\\"}\",\"reveal_id\":\"contribution\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"year-list-container\\\\\\\"]//ul[@class=\\\\\\\"filter-list small\\\\\\\"]/li[*]/a\\\"}\",\"reveal_id\":\"years\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@id=\\\\\\\"year-link-2026\\\\\\\"]/@data-hydro-click\\\"}\",\"reveal_id\":\"github_id_in_html\"}]",
+      "timestamp": 1775028698267,
+      "additionParams": "{\"algorithmType\":\"proxytls\",\"clientRequestId\":\"browser-harness-001\",\"identityPropertyId\":\"0x0e5adf3535913ff915e7f062801a0f3a165711cb26709ec9574a9c45e091c7ff\",\"appId\":\"0x36013DD48B0C1FBFE8906C0AF0CE521DDA69186AB6E6B5017DBF9691F9CF8E5C\",\"provingParams\":{\"max_creation_year\":2100,\"min_contribution_count\":1},\"requests[1].url\":\"https://github.com/ehisper?action=show&controller=profiles&tab=contributions&user_id=ehisper\",\"requests[1].method\":\"GET\",\"requests[1].body\":\"\",\"requests[1].header\":\"\",\"reponseResolves[1][0].keyName\":\"contribution\",\"reponseResolves[1][0].parseType\":\"\",\"reponseResolves[1][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//h2[@id=\\\\\\\"js-contribution-activity-description\\\\\\\"]\\\"}\",\"reponseResolves[1][1].keyName\":\"years\",\"reponseResolves[1][1].parseType\":\"\",\"reponseResolves[1][1].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"year-list-container\\\\\\\"]//ul[@class=\\\\\\\"filter-list small\\\\\\\"]/li[*]/a\\\"}\",\"reponseResolves[1][2].keyName\":\"github_id_in_html\",\"reponseResolves[1][2].parseType\":\"\",\"reponseResolves[1][2].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@id=\\\\\\\"year-link-2026\\\\\\\"]/@data-hydro-click\\\"}\"}",
+      "attestors": [
+          {
+              "attestorAddr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
+              "url": "https://primuslabs.xyz"
+          }
+      ],
+      "signatures": [
+          "0x98007c4301e9dccaa6df315c002936f24b27c4f3f8cbf6bdb13fff22743dddd363c37193c794c0dcb7228db4438b1296583dc5d3c7c8a7ae269123b59125ec941b"
+      ],
+      "requestid": "1a89ecf3-1bd1-43fa-8c9f-e8bc726d741f"
   },
   "private_data": [
-    {
-      "id": "contribution",
-      "salt": "c6067cc6b0d8442b8b6efd6ee17a52e9",
-      "content": [
-        "726\n      contributions\n        in the last year"
-      ]
-    },
-    {
-      "id": "github_id_in_html",
-      "salt": "1fd58d2310ce3279f01972c7b6efba46",
-      "content": [
-        "{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:8588607,&quot;target&quot;:&quot;CONTRIBUTION_YEAR_LINK&quot;,&quot;user_id&quot;:8588607,&quot;originating_url&quot;:&quot;https://github.com/fksyuan?action=show&amp;controller=profiles&amp;tab=contributions&amp;user_id=fksyuan&quot;}}"
-      ]
-    },
-    {
-      "id": "github_id",
-      "salt": "d7a112e0962a5da2f7fa49b9137101f4",
-      "content": [
-        "https://avatars.githubusercontent.com/u/8588607?v=4"
-      ]
-    },
-    {
-      "id": "years",
-      "salt": "a3ce669507ffbe91da6569d0a9bbb612",
-      "content": [
-        "2026",
-        "2025",
-        "2024",
-        "2023",
-        "2022",
-        "2021",
-        "2020",
-        "2019",
-        "2018",
-        "2017",
-        "2016",
-        "2015",
-        "2014"
-      ]
-    }
+      {
+          "id": "contribution",
+          "salt": "06a7ffc31ba6a784fb4cc8381554767e",
+          "content": [
+              "19\n      contributions\n        in the last year"
+          ]
+      },
+      {
+          "id": "github_id",
+          "salt": "4f431f72b9c24eec1061743bba90d7d9",
+          "content": [
+              "https://avatars.githubusercontent.com/u/25573916?v=4"
+          ]
+      },
+      {
+          "id": "github_id_in_html",
+          "salt": "3002c695029fc34795fcd3b57ed4c06b",
+          "content": [
+              "{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:25573916,&quot;target&quot;:&quot;CONTRIBUTION_YEAR_LINK&quot;,&quot;user_id&quot;:25573916,&quot;originating_url&quot;:&quot;https://github.com/ehisper?action=show&amp;controller=profiles&amp;tab=contributions&amp;user_id=ehisper&quot;}}"
+          ]
+      },
+      {
+          "id": "years",
+          "salt": "8bfc8c2f86e74e4c4b7046c172d6561e",
+          "content": [
+              "2026",
+              "2025",
+              "2024",
+              "2023",
+              "2022",
+              "2021",
+              "2020",
+              "2019",
+              "2018",
+              "2017"
+          ]
+      }
   ]
 }
