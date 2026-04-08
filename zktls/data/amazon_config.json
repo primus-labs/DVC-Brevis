@@ -25,12 +25,12 @@
     {
       "op": "REVEAL_SALTTED_HASH",
       "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@class=\\\"num-orders\\\"]?\"}",
-      "reveal_id": "last_3_months_orders"
+      "reveal_id": "year_2025_orders"
     },
     {
       "op": "REVEAL_SALTTED_HASH",
       "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@class=\\\"num-orders\\\"]?\"}",
-      "reveal_id": "year_2025_orders"
+      "reveal_id": "year_2026_orders"
     }
   ]
 }
