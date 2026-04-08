@@ -3,7 +3,8 @@
   "url": [
     "<REGEX>https://www\\.amazon(\\.[a-zA-Z]+){1,2}/ax/account/manage",
     "<REGEX>https://www\\.amazon(\\.[a-zA-Z]+){1,2}/gp/css/order-history",
-    "<REGEX>https://www\\.amazon(\\.[a-zA-Z]+){1,2}/your-orders/orders\\?timeFilter=year-2025&ref_=ppx_yo2ov_dt_b_filter_all_y2025"
+    "<REGEX>https://www\\.amazon(\\.[a-zA-Z]+){1,2}/your-orders/orders\\?timeFilter=year-2025&ref_=ppx_yo2ov_dt_b_filter_all_y2025",
+    "<REGEX>https://www\\.amazon(\\.[a-zA-Z]+){1,2}/your-orders/orders\\?timeFilter=year-2026&ref_=ppx_yo2ov_dt_b_filter_all_y2026"
   ],
   "conditions": [
     {
@@ -24,12 +25,12 @@
     {
       "op": "REVEAL_SALTTED_HASH",
       "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@class=\\\"num-orders\\\"]?\"}",
-      "reveal_id": "last_3_months_orders"
+      "reveal_id": "year_2025_orders"
     },
     {
       "op": "REVEAL_SALTTED_HASH",
       "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@class=\\\"num-orders\\\"]?\"}",
-      "reveal_id": "year_2025_orders"
+      "reveal_id": "year_2026_orders"
     }
   ]
 }
