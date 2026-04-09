@@ -1,53 +1,53 @@
 {
-  "public_data": {
-    "recipient": "0xB12a1f7035FdCBB4cC5Fa102C01346BD45439Adf",
-    "request": {
-      "url": "https://store.steampowered.com/account/history",
-      "header": "",
-      "method": "GET",
-      "body": ""
+    "public_data": {
+        "recipient": "0xA91ba9Eb139d90C55a8F04a31d894De0aBbf5a51",
+        "request": {
+            "url": "https://store.steampowered.com/account/history",
+            "header": "",
+            "method": "GET",
+            "body": ""
+        },
+        "reponseResolve": [
+            {
+                "keyName": "purchase_history",
+                "parseType": "",
+                "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//div[@id=\\\"main_content\\\"]?\"}"
+            },
+            {
+                "keyName": "profile_info",
+                "parseType": "",
+                "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//div[@id=\\\"application_config\\\"]/@data-userinfo?\"}"
+            }
+        ],
+        "data": "{\"purchase_history\":\"dca9dd7af967278c0f34d37baf44276280587c7c16287243c056d1d096810458\",\"profile_info\":\"a866d8d8072ad68c4a13f6d0c586394423884e7007433cfcfc2fcdf3d48f9e21\"}",
+        "attConditions": "[{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"main_content\\\\\\\"]?\\\"}\",\"reveal_id\":\"purchase_history\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"application_config\\\\\\\"]/@data-userinfo?\\\"}\",\"reveal_id\":\"profile_info\"}]",
+        "timestamp": 1775725350951,
+        "additionParams": "{\"algorithmType\":\"proxytls\",\"clientRequestId\":\"1775725343383\",\"identityPropertyId\":\"0xab7ca68fb0d5fb64b53a938930b00a040af3d9a819756883d9bea6367ab84c08\",\"appId\":\"0x36013DD48B0C1FBFE8906C0AF0CE521DDA69186AB6E6B5017DBF9691F9CF8E5C\"}",
+        "attestors": [
+            {
+                "attestorAddr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
+                "url": "https://primuslabs.xyz"
+            }
+        ],
+        "signatures": [
+            "0x801307d8a890059610a846d217c888122ad28081597e40db4e6307b8206450701b5d21b812ae3e7dd27393b776264fe4289c578b169c77b4290fd1eb53e42e3a1b"
+        ],
+        "requestid": "8d0f281b-1550-4a6e-a124-bd8b7dfe4c05"
     },
-    "reponseResolve": [
-      {
-        "keyName": "purchase_history",
-        "parseType": "",
-        "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//div[@id=\\\"main_content\\\"]?\"}"
-      },
-      {
-        "keyName": "profile_info",
-        "parseType": "",
-        "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//a[@aria-label=\\\"View your profile\\\"]?\"}"
-      }
-    ],
-    "data": "{\"purchase_history\":\"36ce6c8fd3c02698797fb48fd70e550cfc2ef3d51d83d8d170aaa178f55473b8\",\"profile_info\":\"83782ed1bd8d621c68ff27e07d2c88980daf57f75a1350573ab2a3b47260a954\"}",
-    "attConditions": "[{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"main_content\\\\\\\"]?\\\"}\",\"reveal_id\":\"purchase_history\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@aria-label=\\\\\\\"View your profile\\\\\\\"]?\\\"}\",\"reveal_id\":\"profile_info\"}]",
-    "timestamp": 1773391046096,
-    "additionParams": "{\"algorithmType\":\"proxytls\"}",
-    "attestors": [
-      {
-        "attestorAddr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
-        "url": "https://primuslabs.xyz"
-      }
-    ],
-    "signatures": [
-      "0xa11bb16b99b20a86a7cd5e45b4e99810b90013c32e3dab9d596748d81ba62d0826437450660de36232ead2eaa7beec7039982ad3230ee29f28844041e1478d0a1b"
-    ],
-    "requestid": "bc86c01b-ed4a-4d4d-8322-fab8715675c7"
-  },
-  "private_data": [
-    {
-      "id": "profile_info",
-      "salt": "b06240a67f8c8abf4efe335a3d9565a5",
-      "content": [
-        "<a href=\"https://steamcommunity.com/profiles/76561198382985081/\" aria-label=\"View your profile\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg\" alt=\"goose_eggsss\">\t\t\t\t\t\t\t\t\t\t\t\t</a>"
-      ]
-    },
-    {
-      "id": "purchase_history",
-      "salt": "9eab927f57e98fe006db76ea3a60bb79",
-      "content": [
-        "<div id=\"main_content\" class=\"page_content\" >\n\t\t\t\t\t\t<div class=\"wallet_history_click_hint\">\n\t\t\tProblem with a transaction? Select it below to get help.\t\t</div>\n\t\t<table class=\"wallet_history_table\">\n\t\t\t<thead>\n\t\t\t\t<tr>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_date\">Date</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_items\">Items</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_type\">Type</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_baseprice\">Price</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_tax\">Tax</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_shipping\">Shipping</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_total\">Total</th>\n\t\t\t\t\t<th class=\"wht_wallet\" colspan=\"2\">Wallet</th>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<th class=\"wht_wallet_change\">Change</th>\n\t\t\t\t\t<th class=\"wht_wallet_balance\">Balance</th>\n\t\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t\t\t\t<tr data-panel=\"{&quot;focusable&quot;:true,&quot;clickOnActivate&quot;:true}\" role=\"button\" class=\"wallet_table_row \" onclick=\"location.href='https://help.steampowered.com/en/wizard/HelpWithTransaction?transid=4284700772204049485'\">\n\t\t<td class=\"wht_date\">15 Sep, 2024</td>\n\t\t<td data-tooltip-text=\"Click to get help with this purchase\" class=\"wht_items \"\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"clear: both\">\n\t\t\t\t\t\tChivalry 2\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"wth_item_refunded\">\n\t\t\t\t\t\tRefund\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t<td class=\"wht_type \">\n\t\t\t\t\t\t\t\t\t<div>Refund</div>\n\t\t\t\t\t\t<div class=\"wth_payment\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAliPay\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t</td>\n\t\t<td class=\"wht_base_price\">\n\t\t\t\t\t</td>\n\t\t<td class=\"wht_tax\">\n\t\t\t\t\t</td>\n\t\t<td class=\"wht_shipping\">\n\t\t\t\t\t</td>\n\t\t<td class=\"wht_total \">\n\t\t\t\t\t\t\t¥ 116.00\t\t\t\t\t</td>\n\n\t\t\t\t\t<td class=\"wht_wallet_change\"></td>\n\t\t\t<td class=\"wht_wallet_balance\"></td>\n\t\t\t</tr>\n\t\t<tr data-panel=\"{&quot;focusable&quot;:true,&quot;clickOnActivate&quot;:true}\" role=\"button\" class=\"wallet_table_row \" onclick=\"location.href='https://help.steampowered.com/en/wizard/HelpWithTransaction?transid=4284700772204049485'\">\n\t\t<td class=\"wht_date\">15 Sep, 2024</td>\n\t\t<td data-tooltip-text=\"Click to get help with this purchase\" class=\"wht_items wht_item_refunded\"\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"clear: both\">\n\t\t\t\t\t\tChivalry 2\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t<td class=\"wht_type wht_refunded\">\n\t\t\t\t\t\t\t\t\t<div>Purchase</div>\n\t\t\t\t\t\t<div class=\"wth_payment\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAliPay\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t</td>\n\t\t<td class=\"wht_base_price\">\n\t\t\t¥ 116.00\t\t</td>\n\t\t<td class=\"wht_tax\">\n\t\t\t\t\t</td>\n\t\t<td class=\"wht_shipping\">\n\t\t\t\t\t</td>\n\t\t<td class=\"wht_total wht_refunded\">\n\t\t\t\t\t\t\t¥ 116.00\t\t\t\t\t</td>\n\n\t\t\t\t\t<td class=\"wht_wallet_change\"></td>\n\t\t\t<td class=\"wht_wallet_balance\"></td>\n\t\t\t</tr>\n\t\t\t<tr data-panel=\"{&quot;focusable&quot;:true,&quot;clickOnActivate&quot;:true}\" role=\"button\" class=\"wallet_table_row \" onclick=\"location.href='https://help.steampowered.com/en/wizard/HelpWithTransaction?transid=1478797762232260746'\">\n\t\t<td class=\"wht_date\">6 Nov, 2019</td>\n\t\t<td data-tooltip-text=\"Click to get help with this purchase\" class=\"wht_items \"\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"clear: both\">\n\t\t\t\t\t\tWallpaper Engine\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t<td class=\"wht_type \">\n\t\t\t\t\t\t\t\t\t<div>Purchase</div>\n\t\t\t\t\t\t<div class=\"wth_payment\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAliPay\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t</td>\n\t\t<td class=\"wht_base_price\">\n\t\t\t¥ 19.00\t\t</td>\n\t\t<td class=\"wht_tax\">\n\t\t\t\t\t</td>\n\t\t<td class=\"wht_shipping\">\n\t\t\t\t\t</td>\n\t\t<td class=\"wht_total \">\n\t\t\t\t\t\t\t¥ 19.00\t\t\t\t\t</td>\n\n\t\t\t\t\t<td class=\"wht_wallet_change\"></td>\n\t\t\t<td class=\"wht_wallet_balance\"></td>\n\t\t\t</tr>\n\t\t<tr data-panel=\"{&quot;focusable&quot;:true,&quot;clickOnActivate&quot;:true}\" role=\"button\" class=\"wallet_table_row \" onclick=\"location.href='https://help.steampowered.com/en/wizard/HelpWithTransaction?transid=1175846430789332971'\">\n\t\t<td class=\"wht_date\">24 Apr, 2017</td>\n\t\t<td data-tooltip-text=\"Click to get help with this purchase\" class=\"wht_items \"\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div style=\"clear: both\">\n\t\t\t\t\t\tPLAYERUNKNOWN'S BATTLEGROUNDS - Worldwide Package\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t<td class=\"wht_type \">\n\t\t\t\t\t\t\t\t\t<div>Purchase</div>\n\t\t\t\t\t\t<div class=\"wth_payment\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAliPay\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t</td>\n\t\t<td class=\"wht_base_price\">\n\t\t\t¥ 98.00\t\t</td>\n\t\t<td class=\"wht_tax\">\n\t\t\t\t\t</td>\n\t\t<td class=\"wht_shipping\">\n\t\t\t\t\t</td>\n\t\t<td class=\"wht_total \">\n\t\t\t\t\t\t\t¥ 98.00\t\t\t\t\t</td>\n\n\t\t\t\t\t<td class=\"wht_wallet_change\"></td>\n\t\t\t<td class=\"wht_wallet_balance\"></td>\n\t\t\t</tr>\n\t\t\t\t<tr id=\"more_history\" style=\"display: none\"></tr>\n\t\t\t</tbody>\n\t\t</table>\n\n\t\t<div class=\"load_more_history_area\">\n\t\t\t<div data-panel=\"{&quot;focusable&quot;:true,&quot;clickOnActivate&quot;:true}\" role=\"button\" id=\"load_more_button\" class=\"btnv6_blue_hoverfade btn_medium\" onclick=\"WalletHistory_LoadMore(); return false;\" style=\"display:none\" >\n\t\t\t\tLoad More Transactions\t\t\t</div>\n\t\t\t<div id=\"wallet_history_loading\" style=\"display: none; \">\n\t\t\t\t<img src=\"https://store.akamai.steamstatic.com/public/images/login/throbber.gif\">\n\t\t\t</div>\n\t\t</div>\n\t</div>"
-      ]
-    }
-  ]
+    "private_data": [
+        {
+            "id": "profile_info",
+            "salt": "029a53f72b64a6be1715ddf2d16733cf",
+            "content": [
+                "{&quot;logged_in&quot;:true,&quot;country_code&quot;:&quot;JP&quot;,&quot;excluded_content_descriptors&quot;:[3,4],&quot;steamid&quot;:&quot;76561198722276533&quot;,&quot;accountid&quot;:762010805,&quot;account_name&quot;:&quot;ohmysuperorange&quot;,&quot;is_support&quot;:false,&quot;is_limited&quot;:true,&quot;is_partner_member&quot;:false,&quot;is_valve_email&quot;:false}"
+            ]
+        },
+        {
+            "id": "purchase_history",
+            "salt": "abe3c43333037b1898a4326efe35c5c8",
+            "content": [
+                "<div id=\"main_content\" class=\"page_content\" >\n\t\t\t\t\t\t<div class=\"wallet_history_click_hint\">\n\t\t\t交易出现问题？在下方选择出现问题的交易以获取帮助。\t\t</div>\n\t\t<table class=\"wallet_history_table\">\n\t\t\t<thead>\n\t\t\t\t<tr>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_date\">日期</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_items\">物品</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_type\">类型</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_baseprice\">价格</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_tax\">税额</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_shipping\">运费</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_total\">总计</th>\n\t\t\t\t\t<th class=\"wht_wallet\" colspan=\"2\">钱包</th>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<th class=\"wht_wallet_change\">变更</th>\n\t\t\t\t\t<th class=\"wht_wallet_balance\">余额</th>\n\t\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr id=\"more_history\" style=\"display: none\"></tr>\n\t\t\t</tbody>\n\t\t</table>\n\n\t\t<div class=\"load_more_history_area\">\n\t\t\t<div data-panel=\"{&quot;focusable&quot;:true,&quot;clickOnActivate&quot;:true}\" role=\"button\" id=\"load_more_button\" class=\"btnv6_blue_hoverfade btn_medium\" onclick=\"WalletHistory_LoadMore(); return false;\" style=\"display:none\" >\n\t\t\t\t加载更多交易\t\t\t</div>\n\t\t\t<div id=\"wallet_history_loading\" style=\"display: none; \">\n\t\t\t\t<img src=\"https://store.fastly.steamstatic.com/public/images/login/throbber.gif\">\n\t\t\t</div>\n\t\t</div>\n\t</div>"
+            ]
+        }
+    ]
 }
