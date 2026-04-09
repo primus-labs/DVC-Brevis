@@ -11,7 +11,7 @@
     },
     {
       "op": "REVEAL_SALTTED_HASH",
-      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//a[@aria-label=\\\"View your profile\\\"]?\"}",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//div[@id=\\\"application_config\\\"]/@data-userinfo?\"}",
       "reveal_id": "profile_info"
     }
   ]
