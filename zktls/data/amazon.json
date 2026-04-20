@@ -1,71 +1,71 @@
 {
-  "public_data": {
-    "recipient": "0x8F0D4188307496926d785fB00E08Ed772f3be890",
-    "request": {
-      "url": "https://www.amazon.sg/ax/account/manage",
-      "header": "",
-      "method": "GET",
-      "body": ""
+    "public_data": {
+        "recipient": "0x8F0D4188307496926d785fB00E08Ed772f3be890",
+        "request": {
+            "url": "https://www.amazon.sg/ax/account/manage",
+            "header": "",
+            "method": "GET",
+            "body": ""
+        },
+        "reponseResolve": [
+            {
+                "keyName": "email",
+                "parseType": "",
+                "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@id=\\\"EMAIL_SUBTITLE\\\"]\"}"
+            }
+        ],
+        "data": "{\"year_2025_orders\":\"ebdaf6d3b6e8350b57346d4a92f36e4fc40d0747b24e4560b6cd9edf8cfe7b6e\",\"email\":\"4998e5e6489bc08950568bc64b601e460a822859385f243a47ed50bb46551aff\",\"year_2026_orders\":\"8be5bd1b535c9cc65ae18aa56373bf89c68cab0dfce922160926404b4126653e\",\"years\":\"f740fe9d4f8be85edb909aa9451d8977db50f14c2e2feace46309d4e4c6ca88c\",\"prime_plan\":\"180c4000bd3bab4e91ab29446022847a24f8ea0679000044bef77ef9c79ce69a\"}",
+        "attConditions": "[{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//span[@id=\\\\\\\"EMAIL_SUBTITLE\\\\\\\"]\\\"}\",\"reveal_id\":\"email\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//select[@id=\\\\\\\"time-filter\\\\\\\"]/option[*]\\\"}\",\"reveal_id\":\"years\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@id=\\\\\\\"nav-logo-sprites\\\\\\\"]?\\\"}\",\"reveal_id\":\"prime_plan\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//span[@class=\\\\\\\"num-orders\\\\\\\"]?\\\"}\",\"reveal_id\":\"year_2025_orders\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//span[@class=\\\\\\\"num-orders\\\\\\\"]?\\\"}\",\"reveal_id\":\"year_2026_orders\"}]",
+        "timestamp": 1776665269889,
+        "additionParams": "{\"algorithmType\":\"proxytls\",\"clientRequestId\":\"1776665217914\",\"identityPropertyId\":\"0xc8e54ecd3ffce098897c6ed6f58d818d83ef46ecb043158d8929433b505ba944\",\"appId\":\"0x36013DD48B0C1FBFE8906C0AF0CE521DDA69186AB6E6B5017DBF9691F9CF8E5C\",\"requests[1].url\":\"https://www.amazon.sg/gp/css/order-history\",\"requests[1].method\":\"GET\",\"requests[1].body\":\"\",\"requests[1].header\":\"\",\"reponseResolves[1][0].keyName\":\"years\",\"reponseResolves[1][0].parseType\":\"\",\"reponseResolves[1][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//select[@id=\\\\\\\"time-filter\\\\\\\"]/option[*]\\\"}\",\"reponseResolves[1][1].keyName\":\"prime_plan\",\"reponseResolves[1][1].parseType\":\"\",\"reponseResolves[1][1].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@id=\\\\\\\"nav-logo-sprites\\\\\\\"]?\\\"}\",\"requests[2].url\":\"https://www.amazon.sg/your-orders/orders?timeFilter=year-2025&ref_=ppx_yo2ov_dt_b_filter_all_y2025\",\"requests[2].method\":\"GET\",\"requests[2].body\":\"\",\"requests[2].header\":\"\",\"reponseResolves[2][0].keyName\":\"year_2025_orders\",\"reponseResolves[2][0].parseType\":\"\",\"reponseResolves[2][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//span[@class=\\\\\\\"num-orders\\\\\\\"]?\\\"}\",\"requests[3].url\":\"https://www.amazon.sg/your-orders/orders?timeFilter=year-2026&ref_=ppx_yo2ov_dt_b_filter_all_y2026\",\"requests[3].method\":\"GET\",\"requests[3].body\":\"\",\"requests[3].header\":\"\",\"reponseResolves[3][0].keyName\":\"year_2026_orders\",\"reponseResolves[3][0].parseType\":\"\",\"reponseResolves[3][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//span[@class=\\\\\\\"num-orders\\\\\\\"]?\\\"}\"}",
+        "attestors": [
+            {
+                "attestorAddr": "0xdb736b13e2f522dbe18b2015d0291e4b193d8ef6",
+                "url": "https://primuslabs.xyz"
+            }
+        ],
+        "signatures": [
+            "0xb7d3c978f053790b0ea122b0c5ec2d9447ffec042443468df3365e046b7f126e6a2d4581e3b137a08debd59ff1797970a100f8e7f475b49f829d3d22b40104f01c"
+        ],
+        "requestid": "3fd826b8-d3a8-4424-9a97-1f2817d00d99"
     },
-    "reponseResolve": [
-      {
-        "keyName": "email",
-        "parseType": "",
-        "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@id=\\\"EMAIL_SUBTITLE\\\"]\"}"
-      }
-    ],
-    "data": "{\"year_2025_orders\":\"24c56496ea35c38e3dc61a2db6fb0db772de9626c189d20013891731d62c2d9a\",\"email\":\"47dc03f0589c6302156187f9809d032fea1beba1dd5d7b852575527c7e527973\",\"year_2026_orders\":\"e5ff878914c20ff69da7db6db1cbaadb04412d7cc6844ef20313c0c04133b603\",\"years\":\"062169ac5619f6862469b12cdbc5436b3de2f8cb3dbbe84c6fd8502e86f745af\",\"prime_plan\":\"65345c76c2dc16ba56a9b1c0d4884b9425a26ac86b8002ae152feccd1042cf33\"}",
-    "attConditions": "[{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//span[@id=\\\\\\\"EMAIL_SUBTITLE\\\\\\\"]\\\"}\",\"reveal_id\":\"email\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//select[@id=\\\\\\\"time-filter\\\\\\\"]/option[*]\\\"}\",\"reveal_id\":\"years\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@id=\\\\\\\"nav-logo-sprites\\\\\\\"]?\\\"}\",\"reveal_id\":\"prime_plan\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//span[@class=\\\\\\\"num-orders\\\\\\\"]?\\\"}\",\"reveal_id\":\"year_2025_orders\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//span[@class=\\\\\\\"num-orders\\\\\\\"]?\\\"}\",\"reveal_id\":\"year_2026_orders\"}]",
-    "timestamp": 1775620267399,
-    "additionParams": "{\"algorithmType\":\"proxytls\",\"clientRequestId\":\"1775620245575\",\"identityPropertyId\":\"0xc8e54ecd3ffce098897c6ed6f58d818d83ef46ecb043158d8929433b505ba944\",\"appId\":\"0x36013DD48B0C1FBFE8906C0AF0CE521DDA69186AB6E6B5017DBF9691F9CF8E5C\",\"requests[1].url\":\"https://www.amazon.sg/gp/css/order-history\",\"requests[1].method\":\"GET\",\"requests[1].body\":\"\",\"requests[1].header\":\"\",\"reponseResolves[1][0].keyName\":\"years\",\"reponseResolves[1][0].parseType\":\"\",\"reponseResolves[1][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//select[@id=\\\\\\\"time-filter\\\\\\\"]/option[*]\\\"}\",\"reponseResolves[1][1].keyName\":\"prime_plan\",\"reponseResolves[1][1].parseType\":\"\",\"reponseResolves[1][1].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@id=\\\\\\\"nav-logo-sprites\\\\\\\"]?\\\"}\",\"requests[2].url\":\"https://www.amazon.sg/your-orders/orders?timeFilter=year-2025&ref_=ppx_yo2ov_dt_b_filter_all_y2025\",\"requests[2].method\":\"GET\",\"requests[2].body\":\"\",\"requests[2].header\":\"\",\"reponseResolves[2][0].keyName\":\"year_2025_orders\",\"reponseResolves[2][0].parseType\":\"\",\"reponseResolves[2][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//span[@class=\\\\\\\"num-orders\\\\\\\"]?\\\"}\",\"requests[3].url\":\"https://www.amazon.sg/your-orders/orders?timeFilter=year-2026&ref_=ppx_yo2ov_dt_b_filter_all_y2026\",\"requests[3].method\":\"GET\",\"requests[3].body\":\"\",\"requests[3].header\":\"\",\"reponseResolves[3][0].keyName\":\"year_2026_orders\",\"reponseResolves[3][0].parseType\":\"\",\"reponseResolves[3][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//span[@class=\\\\\\\"num-orders\\\\\\\"]?\\\"}\"}",
-    "attestors": [
-      {
-        "attestorAddr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
-        "url": "https://primuslabs.xyz"
-      }
-    ],
-    "signatures": [
-      "0x9cb0fc62ad48ca0d81aa72e89d1b72c0ae0de1257ce5006b4e2cbc9f86ce8dfd6f7a2379a28e4b6099b35c0401788958592eef41608f660cae8f21df8fe49d251b"
-    ],
-    "requestid": "4d969f36-1250-44ee-883e-fd1632e23177"
-  },
-  "private_data": [
-    {
-      "id": "email",
-      "salt": "dd18ca10ff9b00d5be2777e429a8788f",
-      "content": [
-        "superorange1991@gmail.com"
-      ]
-    },
-    {
-      "id": "prime_plan",
-      "salt": "1231608cbb0c1724be26b58974e0d411",
-      "content": [
-        "<a href=\"/ref=nav_logo\" id=\"nav-logo-sprites\" class=\"nav-logo-link nav-progressive-attribute\" aria-label=\"Amazon.sg\" lang=\"en\" >\n      <span class=\"nav-sprite nav-logo-base\"></span>\n      <span id=\"logo-ext\" class=\"nav-sprite nav-logo-ext nav-progressive-content\"></span>\n      <span class=\"nav-logo-locale\">.sg</span>\n    </a>"
-      ]
-    },
-    {
-      "id": "year_2025_orders",
-      "salt": "3db0d5a936fd43a62b068228de44486e",
-      "content": [
-        "<span class=\"num-orders\">0 orders</span>"
-      ]
-    },
-    {
-      "id": "year_2026_orders",
-      "salt": "53b14cdbe3267ba1ef2780a75f205418",
-      "content": [
-        "<span class=\"num-orders\">0 orders</span>"
-      ]
-    },
-    {
-      "id": "years",
-      "salt": "53377f699acb0c613744a42ec049422a",
-      "content": [
-        "last 30 days",
-        "past three months",
-        "2026"
-      ]
-    }
-  ]
+    "private_data": [
+        {
+            "id": "email",
+            "salt": "68feaaa329840d3f0adf81287c0448c5",
+            "content": [
+                "superorange1991@gmail.com"
+            ]
+        },
+        {
+            "id": "prime_plan",
+            "salt": "a74418b2aed6e44eeb2852240efa473b",
+            "content": [
+                "<a href=\"/ref=nav_logo\" id=\"nav-logo-sprites\" class=\"nav-logo-link nav-progressive-attribute\" aria-label=\"Amazon.sg\" lang=\"en\" >\n      <span class=\"nav-sprite nav-logo-base\"></span>\n      <span id=\"logo-ext\" class=\"nav-sprite nav-logo-ext nav-progressive-content\"></span>\n      <span class=\"nav-logo-locale\">.sg</span>\n    </a>"
+            ]
+        },
+        {
+            "id": "year_2025_orders",
+            "salt": "a1783e2fab65bd9eac510f51ec78c141",
+            "content": [
+                "<span class=\"num-orders\">0 orders</span>"
+            ]
+        },
+        {
+            "id": "year_2026_orders",
+            "salt": "81a98d0acbe39e1701adddb2dd39edbc",
+            "content": [
+                "<span class=\"num-orders\">0 orders</span>"
+            ]
+        },
+        {
+            "id": "years",
+            "salt": "2ad316ac4922ed367481d60bae6e0947",
+            "content": [
+                "last 30 days",
+                "past three months",
+                "2026"
+            ]
+        }
+    ]
 }
