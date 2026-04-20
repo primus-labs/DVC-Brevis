@@ -1,55 +1,55 @@
 {
-    "public_data": {
-        "recipient": "0xB12a1f7035FdCBB4cC5Fa102C01346BD45439Adf",
-        "request": {
-            "url": "https://www.okx.com/priapi/v5/account/bills-archive?_start=1760939366744&_end=1776664166744&limit=500&t=1776664166744",
-            "header": "",
-            "method": "GET",
-            "body": ""
-        },
-        "reponseResolve": [
-            {
-                "keyName": "data",
-                "parseType": "",
-                "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.data\"}"
-            }
-        ],
-        "data": "{\"kycLevel\":\"049372564bf426634123a62b2657b51cd7bae90f38cac476d089696ebd6c77fb\",\"data\":\"6aeae4ff7cc8dcc3adef16864a4df9e2a6562f1fcdd9655b0030ba6f416bee54\",\"uuid\":\"872f87caff10d8073d207247b6f41bd881c1ae5f8ca2605dde54413bdfee997a\"}",
-        "attConditions": "[{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data\\\"}\",\"reveal_id\":\"data\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data.uuid\\\"}\",\"reveal_id\":\"uuid\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data.kycLevel\\\"}\",\"reveal_id\":\"kycLevel\"}]",
-        "timestamp": 1776664173787,
-        "additionParams": "{\"algorithmType\":\"proxytls\",\"clientRequestId\":\"1776664167176\",\"identityPropertyId\":\"0x289d4fed0b3ecb26e711e6d1200b46f1d67f2da4847b03f99aa8584706933195\",\"appId\":\"0x36013DD48B0C1FBFE8906C0AF0CE521DDA69186AB6E6B5017DBF9691F9CF8E5C\",\"needUpdateRequests\":[{\"queryParams\":{\"_start\":1760939366744,\"_end\":1776664166744,\"limit\":500,\"t\":1776664166744}}],\"requests[1].url\":\"https://www.okx.com/v3/users/security/profile?t=1776664169251\",\"requests[1].method\":\"GET\",\"requests[1].body\":\"\",\"requests[1].header\":\"\",\"reponseResolves[1][0].keyName\":\"uuid\",\"reponseResolves[1][0].parseType\":\"\",\"reponseResolves[1][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data.uuid\\\"}\",\"reponseResolves[1][1].keyName\":\"kycLevel\",\"reponseResolves[1][1].parseType\":\"\",\"reponseResolves[1][1].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data.kycLevel\\\"}\"}",
-        "attestors": [
-            {
-                "attestorAddr": "0xdb736b13e2f522dbe18b2015d0291e4b193d8ef6",
-                "url": "https://primuslabs.xyz"
-            }
-        ],
-        "signatures": [
-            "0xed7a42248ca92451c97426fa1050ff24b15bbf2d8a6ad53dd11f5e3c69643a620e267074c17800a0df6d749b1d63fa66db67531192712d7321862b06d2890d921b"
-        ],
-        "requestid": "28bde275-4785-4e63-866b-1312fa6d682a"
+  "public_data": {
+    "recipient": "0xB12a1f7035FdCBB4cC5Fa102C01346BD45439Adf",
+    "request": {
+      "url": "https://www.okx.com/priapi/v5/account/bills-archive?_start=1760939366744&_end=1776664166744&limit=500&t=1776664166744",
+      "header": "",
+      "method": "GET",
+      "body": ""
     },
-    "private_data": [
-        {
-            "id": "data",
-            "salt": "54ea8f0925ec34b99af4b46623e0cc54",
-            "content": [
-                "[{\"bal\":\"0.4998749937496875\",\"balChg\":\"0.4998749937496875\",\"billId\":\"3384574638364991490\",\"ccy\":\"USDC\",\"clOrdId\":\"settleBlk17733705845030566\",\"displayId\":\"\",\"earnAmt\":\"\",\"earnApr\":\"\",\"execType\":\"\",\"fee\":\"0\",\"fillFwdPx\":\"\",\"fillIdxPx\":\"1\",\"fillMarkPx\":\"\",\"fillMarkVol\":\"\",\"fillPxUsd\":\"\",\"fillPxVol\":\"\",\"fillTime\":\"1773370584517\",\"from\":\"\",\"fromDesc\":\"\",\"instId\":\"USDT-USDC\",\"instType\":\"CONVERT\",\"interest\":\"0\",\"mgnMode\":\"cash\",\"modifyTime\":1773370584517,\"notes\":\"\",\"ordId\":\"3384574638297882624\",\"pnl\":\"0\",\"posBal\":\"0\",\"posBalChg\":\"0\",\"price\":\"0.999749987499375\",\"ruleType\":\"\",\"sId\":\"0\",\"side\":\"\",\"subType\":\"318\",\"subTypeDesc\":\"闪兑买入\",\"sz\":\"0.4998749937496875\",\"tag\":\"\",\"to\":\"\",\"toDesc\":\"\",\"tradeId\":\"3384574638243160064\",\"ts\":\"1773370584517\",\"type\":\"27\",\"typeDesc\":\"闪兑\"},{\"bal\":\"0\",\"balChg\":\"-0.5\",\"billId\":\"3384574638364991489\",\"ccy\":\"USDT\",\"clOrdId\":\"settleBlk17733705845030566\",\"displayId\":\"\",\"earnAmt\":\"\",\"earnApr\":\"\",\"execType\":\"\",\"fee\":\"0\",\"fillFwdPx\":\"\",\"fillIdxPx\":\"1\",\"fillMarkPx\":\"\",\"fillMarkVol\":\"\",\"fillPxUsd\":\"\",\"fillPxVol\":\"\",\"fillTime\":\"1773370584517\",\"from\":\"\",\"fromDesc\":\"\",\"instId\":\"USDT-USDC\",\"instType\":\"CONVERT\",\"interest\":\"0\",\"mgnMode\":\"cash\",\"modifyTime\":1773370584517,\"notes\":\"\",\"ordId\":\"3384574638297882624\",\"pnl\":\"0\",\"posBal\":\"0\",\"posBalChg\":\"0\",\"price\":\"0.999749987499375\",\"ruleType\":\"\",\"sId\":\"0\",\"side\":\"\",\"subType\":\"319\",\"subTypeDesc\":\"闪兑卖出\",\"sz\":\"0.5\",\"tag\":\"\",\"to\":\"\",\"toDesc\":\"\",\"tradeId\":\"3384574638243160064\",\"ts\":\"1773370584517\",\"type\":\"27\",\"typeDesc\":\"闪兑\"}]"
-            ]
-        },
-        {
-            "id": "kycLevel",
-            "salt": "d6dd513ee9e7aec1ba9113b75594129d",
-            "content": [
-                "2"
-            ]
-        },
-        {
-            "id": "uuid",
-            "salt": "d2ba4ad8f3df97ab5ac7bf34b01f08d3",
-            "content": [
-                "368977816601172152"
-            ]
-        }
-    ]
+    "reponseResolve": [
+      {
+        "keyName": "data",
+        "parseType": "",
+        "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.data\"}"
+      }
+    ],
+    "data": "{\"kycLevel\":\"049372564bf426634123a62b2657b51cd7bae90f38cac476d089696ebd6c77fb\",\"data\":\"6aeae4ff7cc8dcc3adef16864a4df9e2a6562f1fcdd9655b0030ba6f416bee54\",\"uuid\":\"872f87caff10d8073d207247b6f41bd881c1ae5f8ca2605dde54413bdfee997a\"}",
+    "attConditions": "[{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data\\\"}\",\"reveal_id\":\"data\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data.uuid\\\"}\",\"reveal_id\":\"uuid\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data.kycLevel\\\"}\",\"reveal_id\":\"kycLevel\"}]",
+    "timestamp": 1776664173787,
+    "additionParams": "{\"algorithmType\":\"proxytls\",\"clientRequestId\":\"1776664167176\",\"identityPropertyId\":\"0x289d4fed0b3ecb26e711e6d1200b46f1d67f2da4847b03f99aa8584706933195\",\"appId\":\"0x36013DD48B0C1FBFE8906C0AF0CE521DDA69186AB6E6B5017DBF9691F9CF8E5C\",\"needUpdateRequests\":[{\"queryParams\":{\"_start\":1760939366744,\"_end\":1776664166744,\"limit\":500,\"t\":1776664166744}}],\"requests[1].url\":\"https://www.okx.com/v3/users/security/profile?t=1776664169251\",\"requests[1].method\":\"GET\",\"requests[1].body\":\"\",\"requests[1].header\":\"\",\"reponseResolves[1][0].keyName\":\"uuid\",\"reponseResolves[1][0].parseType\":\"\",\"reponseResolves[1][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data.uuid\\\"}\",\"reponseResolves[1][1].keyName\":\"kycLevel\",\"reponseResolves[1][1].parseType\":\"\",\"reponseResolves[1][1].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.data.kycLevel\\\"}\"}",
+    "attestors": [
+      {
+        "attestorAddr": "0xdb736b13e2f522dbe18b2015d0291e4b193d8ef6",
+        "url": "https://primuslabs.xyz"
+      }
+    ],
+    "signatures": [
+      "0xed7a42248ca92451c97426fa1050ff24b15bbf2d8a6ad53dd11f5e3c69643a620e267074c17800a0df6d749b1d63fa66db67531192712d7321862b06d2890d921b"
+    ],
+    "requestid": "28bde275-4785-4e63-866b-1312fa6d682a"
+  },
+  "private_data": [
+    {
+      "id": "data",
+      "salt": "54ea8f0925ec34b99af4b46623e0cc54",
+      "content": [
+        "[{\"bal\":\"0.4998749937496875\",\"balChg\":\"0.4998749937496875\",\"billId\":\"3384574638364991490\",\"ccy\":\"USDC\",\"clOrdId\":\"settleBlk17733705845030566\",\"displayId\":\"\",\"earnAmt\":\"\",\"earnApr\":\"\",\"execType\":\"\",\"fee\":\"0\",\"fillFwdPx\":\"\",\"fillIdxPx\":\"1\",\"fillMarkPx\":\"\",\"fillMarkVol\":\"\",\"fillPxUsd\":\"\",\"fillPxVol\":\"\",\"fillTime\":\"1773370584517\",\"from\":\"\",\"fromDesc\":\"\",\"instId\":\"USDT-USDC\",\"instType\":\"CONVERT\",\"interest\":\"0\",\"mgnMode\":\"cash\",\"modifyTime\":1773370584517,\"notes\":\"\",\"ordId\":\"3384574638297882624\",\"pnl\":\"0\",\"posBal\":\"0\",\"posBalChg\":\"0\",\"price\":\"0.999749987499375\",\"ruleType\":\"\",\"sId\":\"0\",\"side\":\"\",\"subType\":\"318\",\"subTypeDesc\":\"闪兑买入\",\"sz\":\"0.4998749937496875\",\"tag\":\"\",\"to\":\"\",\"toDesc\":\"\",\"tradeId\":\"3384574638243160064\",\"ts\":\"1773370584517\",\"type\":\"27\",\"typeDesc\":\"闪兑\"},{\"bal\":\"0\",\"balChg\":\"-0.5\",\"billId\":\"3384574638364991489\",\"ccy\":\"USDT\",\"clOrdId\":\"settleBlk17733705845030566\",\"displayId\":\"\",\"earnAmt\":\"\",\"earnApr\":\"\",\"execType\":\"\",\"fee\":\"0\",\"fillFwdPx\":\"\",\"fillIdxPx\":\"1\",\"fillMarkPx\":\"\",\"fillMarkVol\":\"\",\"fillPxUsd\":\"\",\"fillPxVol\":\"\",\"fillTime\":\"1773370584517\",\"from\":\"\",\"fromDesc\":\"\",\"instId\":\"USDT-USDC\",\"instType\":\"CONVERT\",\"interest\":\"0\",\"mgnMode\":\"cash\",\"modifyTime\":1773370584517,\"notes\":\"\",\"ordId\":\"3384574638297882624\",\"pnl\":\"0\",\"posBal\":\"0\",\"posBalChg\":\"0\",\"price\":\"0.999749987499375\",\"ruleType\":\"\",\"sId\":\"0\",\"side\":\"\",\"subType\":\"319\",\"subTypeDesc\":\"闪兑卖出\",\"sz\":\"0.5\",\"tag\":\"\",\"to\":\"\",\"toDesc\":\"\",\"tradeId\":\"3384574638243160064\",\"ts\":\"1773370584517\",\"type\":\"27\",\"typeDesc\":\"闪兑\"}]"
+      ]
+    },
+    {
+      "id": "kycLevel",
+      "salt": "d6dd513ee9e7aec1ba9113b75594129d",
+      "content": [
+        "2"
+      ]
+    },
+    {
+      "id": "uuid",
+      "salt": "d2ba4ad8f3df97ab5ac7bf34b01f08d3",
+      "content": [
+        "368977816601172152"
+      ]
+    }
+  ]
 }
