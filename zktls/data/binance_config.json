@@ -1,5 +1,5 @@
 {
-  "attestor_addr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
+  "attestor_addr": "0xdb736b13e2f522dbe18b2015d0291e4b193d8ef6",
   "url": [
     "https://www.binance.com/bapi/capital/v1/private/streamer/trade/get-user-trades",
     "https://www.binance.com/bapi/kyc/v2/private/certificate/user-kyc/current-kyc-status"

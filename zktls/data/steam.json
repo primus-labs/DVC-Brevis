@@ -19,32 +19,32 @@
         "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//div[@id=\\\"application_config\\\"]/@data-userinfo?\"}"
       }
     ],
-    "data": "{\"purchase_history\":\"cce7827435a11429eddeff295106ac35b1576b0ebefecf359ab36921a8b74b08\",\"profile_info\":\"63fa0572eed840b73f0313dcceeedbfea142480a17b6a31a2b42f9fb469f526c\"}",
+    "data": "{\"purchase_history\":\"42d77aecd445f0475231e166a6953c91b28da432efb830b1e069ec7e425724b2\",\"profile_info\":\"b47f5109162711b940b923845e9366e1895aee14cfe309b983a5cc321105afe1\"}",
     "attConditions": "[{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"main_content\\\\\\\"]?\\\"}\",\"reveal_id\":\"purchase_history\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"application_config\\\\\\\"]/@data-userinfo?\\\"}\",\"reveal_id\":\"profile_info\"}]",
-    "timestamp": 1775726048495,
-    "additionParams": "{\"algorithmType\":\"proxytls\",\"clientRequestId\":\"1775726041994\",\"identityPropertyId\":\"0xab7ca68fb0d5fb64b53a938930b00a040af3d9a819756883d9bea6367ab84c08\",\"appId\":\"0x36013DD48B0C1FBFE8906C0AF0CE521DDA69186AB6E6B5017DBF9691F9CF8E5C\"}",
+    "timestamp": 1776664310029,
+    "additionParams": "{\"algorithmType\":\"proxytls\",\"clientRequestId\":\"1776664302880\",\"identityPropertyId\":\"0xab7ca68fb0d5fb64b53a938930b00a040af3d9a819756883d9bea6367ab84c08\",\"appId\":\"0x36013DD48B0C1FBFE8906C0AF0CE521DDA69186AB6E6B5017DBF9691F9CF8E5C\"}",
     "attestors": [
       {
-        "attestorAddr": "0xe02bd7a6c8aa401189aebb5bad755c2610940a73",
+        "attestorAddr": "0xdb736b13e2f522dbe18b2015d0291e4b193d8ef6",
         "url": "https://primuslabs.xyz"
       }
     ],
     "signatures": [
-      "0x9815d6b1a26446e579e2d50e5861923ffb8c9ae053c7ff5b9b7fa40e0c0735b70f549ccbc6755fbf592ab9de767536319e5029ac321e1af33d7846b4016c0e7c1b"
+      "0xb0402719829e822907fe8588f464aff9998427e50de3c137d52564584442c02556936506f27e053539e80f938f5a8a755f146446f887af2cb04f9da6a84241771b"
     ],
-    "requestid": "ea06c3fb-0a03-4f04-a520-5427b46bbde5"
+    "requestid": "719e949c-4f32-4eb3-aeb8-81ba3db74331"
   },
   "private_data": [
     {
       "id": "profile_info",
-      "salt": "77f86903cdecb9141fd2735d81ef2efa",
+      "salt": "a5bd5fb21b07f1f9f238dc2d74d00531",
       "content": [
         "{&quot;logged_in&quot;:true,&quot;country_code&quot;:&quot;JP&quot;,&quot;excluded_content_descriptors&quot;:[3,4],&quot;steamid&quot;:&quot;76561198722276533&quot;,&quot;accountid&quot;:762010805,&quot;account_name&quot;:&quot;ohmysuperorange&quot;,&quot;is_support&quot;:false,&quot;is_limited&quot;:true,&quot;is_partner_member&quot;:false,&quot;is_valve_email&quot;:false}"
       ]
     },
     {
       "id": "purchase_history",
-      "salt": "d9c1ce2f0340c4a2014513820024cf90",
+      "salt": "bde4aa17b6f17e5edccbaf24739c9685",
       "content": [
         "<div id=\"main_content\" class=\"page_content\" >\n\t\t\t\t\t\t<div class=\"wallet_history_click_hint\">\n\t\t\tProblem with a transaction? Select it below to get help.\t\t</div>\n\t\t<table class=\"wallet_history_table\">\n\t\t\t<thead>\n\t\t\t\t<tr>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_date\">Date</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_items\">Items</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_type\">Type</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_baseprice\">Price</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_tax\">Tax</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_shipping\">Shipping</th>\n\t\t\t\t\t<th rowspan=\"2\" class=\"wht_total\">Total</th>\n\t\t\t\t\t<th class=\"wht_wallet\" colspan=\"2\">Wallet</th>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<th class=\"wht_wallet_change\">Change</th>\n\t\t\t\t\t<th class=\"wht_wallet_balance\">Balance</th>\n\t\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr id=\"more_history\" style=\"display: none\"></tr>\n\t\t\t</tbody>\n\t\t</table>\n\n\t\t<div class=\"load_more_history_area\">\n\t\t\t<div data-panel=\"{&quot;focusable&quot;:true,&quot;clickOnActivate&quot;:true}\" role=\"button\" id=\"load_more_button\" class=\"btnv6_blue_hoverfade btn_medium\" onclick=\"WalletHistory_LoadMore(); return false;\" style=\"display:none\" >\n\t\t\t\tLoad More Transactions\t\t\t</div>\n\t\t\t<div id=\"wallet_history_loading\" style=\"display: none; \">\n\t\t\t\t<img src=\"https://store.fastly.steamstatic.com/public/images/login/throbber.gif\">\n\t\t\t</div>\n\t\t</div>\n\t</div>"
       ]
