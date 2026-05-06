@@ -2,7 +2,7 @@
   "public_data": {
     "recipient": "0xB12a1f7035FdCBB4cC5Fa102C01346BD45439Adf",
     "request": {
-      "url": "https://github.com/_global-navigation/payloads.json?return_to=https%3A%2F%2Fgithub.com%2F",
+      "url": "https://github.com/github-copilot/chat?skip_anchor=true",
       "header": "",
       "method": "GET",
       "body": ""
@@ -11,13 +11,13 @@
       {
         "keyName": "github_id",
         "parseType": "",
-        "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.user_menu.owner.avatarUrl\"}"
+        "parsePath": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"$.currentUser.primaryAvatarUrl\"}"
       }
     ],
-    "data": "{\"github_id_in_html\":\"757498573a848d7011076d9a8715f33c6db024089940ffcb3b6b1d48ba58c072\",\"contribution\":\"ec4320498d17182bb7d5f1c315791cc6f1a5677b45c2a9f9906c97a61ed2e43c\",\"github_id\":\"ed6d0c5ff3c112aca95bdf415c80159c032db9b5e5825cea1c06ab6eb59feb0f\",\"years\":\"aef074e9f4fed1fa1953f5103fe81d2bc486ac7428adfd7bc5c91316e580af51\"}",
-    "attConditions": "[{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.user_menu.owner.avatarUrl\\\"}\",\"reveal_id\":\"github_id\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//h2[@id=\\\\\\\"js-contribution-activity-description\\\\\\\"]\\\"}\",\"reveal_id\":\"contribution\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"year-list-container\\\\\\\"]//ul[@class=\\\\\\\"filter-list small\\\\\\\"]/li[*]/a\\\"}\",\"reveal_id\":\"years\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@id=\\\\\\\"year-link-2026\\\\\\\"]/@data-hydro-click\\\"}\",\"reveal_id\":\"github_id_in_html\"}]",
-    "timestamp": 1776661003437,
-    "additionParams": "{\"algorithmType\":\"proxytls\",\"clientRequestId\":\"1776660991427\",\"identityPropertyId\":\"0x0e5adf3535913ff915e7f062801a0f3a165711cb26709ec9574a9c45e091c7ff\",\"appId\":\"0x36013DD48B0C1FBFE8906C0AF0CE521DDA69186AB6E6B5017DBF9691F9CF8E5C\",\"requests[1].url\":\"https://github.com/ehisper?action=show&controller=profiles&tab=contributions&user_id=ehisper\",\"requests[1].method\":\"GET\",\"requests[1].body\":\"\",\"requests[1].header\":\"\",\"reponseResolves[1][0].keyName\":\"contribution\",\"reponseResolves[1][0].parseType\":\"\",\"reponseResolves[1][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//h2[@id=\\\\\\\"js-contribution-activity-description\\\\\\\"]\\\"}\",\"reponseResolves[1][1].keyName\":\"years\",\"reponseResolves[1][1].parseType\":\"\",\"reponseResolves[1][1].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"year-list-container\\\\\\\"]//ul[@class=\\\\\\\"filter-list small\\\\\\\"]/li[*]/a\\\"}\",\"reponseResolves[1][2].keyName\":\"github_id_in_html\",\"reponseResolves[1][2].parseType\":\"\",\"reponseResolves[1][2].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@id=\\\\\\\"year-link-2026\\\\\\\"]/@data-hydro-click\\\"}\"}",
+    "data": "{\"github_id_in_html\":\"5e9fd16702533c0423316801a693f6bf19ceb37c2e0ae06c590ed8feccb18902\",\"contribution\":\"53ffd09a75a9da53fb669810e2f000c38947ab32295a10e760f8122d2fd4cc74\",\"github_id\":\"8d9f9ee1eacd61996938f80844538a989fd954805daf2e7fdc6fa47afd4786ee\",\"years\":\"7a37b5bb168af66aa0f9c21bc513663093941f8e5ce0a4601b627709dabfc836\"}",
+    "attConditions": "[{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"$.currentUser.primaryAvatarUrl\\\"}\",\"reveal_id\":\"github_id\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//h2[@id=\\\\\\\"js-contribution-activity-description\\\\\\\"]\\\"}\",\"reveal_id\":\"contribution\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"year-list-container\\\\\\\"]//ul[@class=\\\\\\\"filter-list small\\\\\\\"]/li[*]/a\\\"}\",\"reveal_id\":\"years\"},{\"op\":\"REVEAL_SALTTED_HASH\",\"field\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@id=\\\\\\\"year-link-2026\\\\\\\"]/@data-hydro-click\\\"}\",\"reveal_id\":\"github_id_in_html\"}]",
+    "timestamp": 1778045427353,
+    "additionParams": "{\"algorithmType\":\"proxytls\",\"clientRequestId\":\"1778045413133\",\"identityPropertyId\":\"0x0e5adf3535913ff915e7f062801a0f3a165711cb26709ec9574a9c45e091c7ff\",\"appId\":\"0x36013DD48B0C1FBFE8906C0AF0CE521DDA69186AB6E6B5017DBF9691F9CF8E5C\",\"requests[1].url\":\"https://github.com/ehisper?action=show&controller=profiles&tab=contributions&user_id=ehisper\",\"requests[1].method\":\"GET\",\"requests[1].body\":\"\",\"requests[1].header\":\"\",\"reponseResolves[1][0].keyName\":\"contribution\",\"reponseResolves[1][0].parseType\":\"\",\"reponseResolves[1][0].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//h2[@id=\\\\\\\"js-contribution-activity-description\\\\\\\"]\\\"}\",\"reponseResolves[1][1].keyName\":\"years\",\"reponseResolves[1][1].parseType\":\"\",\"reponseResolves[1][1].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//div[@id=\\\\\\\"year-list-container\\\\\\\"]//ul[@class=\\\\\\\"filter-list small\\\\\\\"]/li[*]/a\\\"}\",\"reponseResolves[1][2].keyName\":\"github_id_in_html\",\"reponseResolves[1][2].parseType\":\"\",\"reponseResolves[1][2].parsePath\":\"{\\\"type\\\":\\\"FIELD_ARITHMETIC\\\",\\\"op\\\":\\\"SHA256_WITH_SALT\\\",\\\"field\\\":\\\"//a[@id=\\\\\\\"year-link-2026\\\\\\\"]/@data-hydro-click\\\"}\"}",
     "attestors": [
       {
         "attestorAddr": "0xdb736b13e2f522dbe18b2015d0291e4b193d8ef6",
@@ -25,35 +25,35 @@
       }
     ],
     "signatures": [
-      "0x970d7b8a58ba20736d49f0f3a718561a2bba637bbc9a80a1c5e0b460add6f00f48cdcc68aae4c43d5cbf62f4fd7d48676e7e3c0a6c5d95cc61648cd85dd3c11a1b"
+      "0xfbd3c1bf0e6b6c99902b9545a3f66c07f69522c3f607ebe7725cd0d8064cfefa2e3b9b7434136c15e57234902c481662dac0938a1f60dcfd8dd715aba42629971c"
     ],
-    "requestid": "357c5e0e-a10a-4486-ba2c-fbf97eb383ad"
+    "requestid": "66c9d0cc-9bf4-4a27-83d2-8f4e4b243985"
   },
   "private_data": [
     {
       "id": "contribution",
-      "salt": "378ee943e187e5f2279165cc44fe2709",
+      "salt": "41524501f4309e426eb62cab7dd803a8",
       "content": [
-        "17\n      contributions\n        in the last year"
+        "20\n      contributions\n        in the last year"
       ]
     },
     {
       "id": "github_id",
-      "salt": "6ebcd5e00b7695d160e4cc72c56fb7b3",
+      "salt": "bf49e518d098d027f8d4a1498b11388f",
       "content": [
         "https://avatars.githubusercontent.com/u/25573916?v=4"
       ]
     },
     {
       "id": "github_id_in_html",
-      "salt": "5f33f826f7cc14acf5f3fbbf49e730f8",
+      "salt": "ff8784f4923949fdcb6716a1c031b3b1",
       "content": [
         "{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:25573916,&quot;target&quot;:&quot;CONTRIBUTION_YEAR_LINK&quot;,&quot;user_id&quot;:25573916,&quot;originating_url&quot;:&quot;https://github.com/ehisper?action=show&amp;controller=profiles&amp;tab=contributions&amp;user_id=ehisper&quot;}}"
       ]
     },
     {
       "id": "years",
-      "salt": "37cf114ecb88ea64006693f25683129e",
+      "salt": "b201c9ec6840162c33aca66d8f854176",
       "content": [
         "2026",
         "2025",
