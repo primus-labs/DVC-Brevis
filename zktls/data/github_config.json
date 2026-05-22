@@ -17,7 +17,7 @@
     },
     {
       "op": "REVEAL_SALTTED_HASH",
-      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//div[@id=\\\"year-list-container\\\"]//ul[@class=\\\"filter-list small\\\"]/li[*]/a\"}",
+      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//div[@id=\\\"year-list-container\\\"]//ol[@class=\\\"filter-list small\\\"]/li[*]/a\"}",
       "reveal_id": "years"
     },
     {
