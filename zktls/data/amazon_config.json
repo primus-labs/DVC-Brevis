@@ -1,36 +1,36 @@
 {
   "attestor_addr": "0xdb736b13e2f522dbe18b2015d0291e4b193d8ef6",
   "url": [
-    "<REGEX>https://www\\.amazon(\\.[a-zA-Z]+){1,2}/ax/account/manage",
+    "<REGEX>https://www\\.amazon(\\.[a-zA-Z]+){1,2}/ap/cnep\\?openid.assoc_handle=[a-zA-Z]+",
     "<REGEX>https://www\\.amazon(\\.[a-zA-Z]+){1,2}/gp/css/order-history",
     "<REGEX>https://www\\.amazon(\\.[a-zA-Z]+){1,2}/your-orders/orders\\?timeFilter=year-2025&ref_=ppx_yo2ov_dt_b_filter_all_y2025",
     "<REGEX>https://www\\.amazon(\\.[a-zA-Z]+){1,2}/your-orders/orders\\?timeFilter=year-2026&ref_=ppx_yo2ov_dt_b_filter_all_y2026"
   ],
   "conditions": [
     {
-      "op": "REVEAL_SALTTED_HASH",
-      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@id=\\\"EMAIL_SUBTITLE\\\"]\"}",
-      "reveal_id": "email"
+        "op": "REVEAL_SALTTED_HASH",
+        "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//form[@id='cnep_1a_email_form']/div/div[1]/div[2]\"}",
+        "reveal_id": "email"
     },
     {
-      "op": "REVEAL_SALTTED_HASH",
-      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//select[@id=\\\"time-filter\\\"]/option[*]\"}",
-      "reveal_id": "years"
+        "op": "REVEAL_SALTTED_HASH",
+        "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//select[@id=\\\"time-filter\\\"]/option[*]\"}",
+        "reveal_id": "years"
     },
     {
-      "op": "REVEAL_SALTTED_HASH",
-      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//a[@id=\\\"nav-logo-sprites\\\"]?\"}",
-      "reveal_id": "prime_plan"
+        "op": "REVEAL_SALTTED_HASH",
+        "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//a[@id=\\\"nav-logo-sprites\\\"]?\"}",
+        "reveal_id": "prime_plan"
     },
     {
-      "op": "REVEAL_SALTTED_HASH",
-      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@class=\\\"num-orders\\\"]?\"}",
-      "reveal_id": "year_2025_orders"
+        "op": "REVEAL_SALTTED_HASH",
+        "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@class=\\\"num-orders\\\"]?\"}",
+        "reveal_id": "year_2025_orders"
     },
     {
-      "op": "REVEAL_SALTTED_HASH",
-      "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@class=\\\"num-orders\\\"]?\"}",
-      "reveal_id": "year_2026_orders"
+        "op": "REVEAL_SALTTED_HASH",
+        "field": "{\"type\":\"FIELD_ARITHMETIC\",\"op\":\"SHA256_WITH_SALT\",\"field\":\"//span[@class=\\\"num-orders\\\"]?\"}",
+        "reveal_id": "year_2026_orders"
     }
-  ]
+]
 }
